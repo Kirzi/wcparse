@@ -4554,148 +4554,172 @@ const calculateHiddenPower = (hp, atk, def, spa, spd, spe) => ({
 });
 
 exports.parseBuffer = (buf, options) => {
-  if (buf.readUInt16LE(0x04) || [232, 260].indexOf(buf.length) === -1 || !checksumIsValid(buf) || buf.readUInt8(0x58) ||
-      buf.readUInt8(0x90) || buf.readUInt8(0xc8)) {
-    throw new TypeError('The provided buffer is not valid pk6 data');
-  }
+  //if (buf.readUInt16LE(0x04) || [232, 260].indexOf(buf.length) === -1 || !checksumIsValid(buf) || buf.readUInt8(0x58) ||
+  //    buf.readUInt8(0x90) || buf.readUInt8(0xc8)) {
+  //  throw new TypeError('The provided buffer is not valid pk6 data');
+  //}
   options = options || {};
   options.parseNames = !!options.parseNames;
 
   const data = {};
-  data.encryptionConstant = buf.readUInt32LE(0x00);
-  data.dexNo = buf.readUInt16LE(0x08);
-  data.heldItemId = buf.readUInt16LE(0x0a);
-  data.tid = buf.readUInt16LE(0x0c);
-  data.sid = buf.readUInt16LE(0x0e);
-  data.exp = buf.readUInt32LE(0x10);
-  data.abilityId = buf.readUInt8(0x14);
-  data.abilityNum = buf.readUInt8(0x15);
-  data.superTrainingHitsRemaining = buf.readUInt8(0x16);
-  data.superTrainingBag = buf.readUInt8(0x17);
-  data.pid = buf.readUInt32LE(0x18);
-  data.natureId = buf.readUInt8(0x1c);
-
-  const genderByte = buf.readUInt8(0x1d);
-  data.isFatefulEncounter = !!(genderByte & 0x01);
-  const isFemale = genderByte & 0x02;
-  const isGenderless = genderByte & 0x04;
-  data.gender = isFemale ? 'F' : isGenderless ? '' : 'M';
-  data.formId = genderByte >>> 3;
-
-  data.evHp = buf.readUInt8(0x1e);
-  data.evAtk = buf.readUInt8(0x1f);
-  data.evDef = buf.readUInt8(0x20);
-  data.evSpe = buf.readUInt8(0x21);
-  data.evSpAtk = buf.readUInt8(0x22);
-  data.evSpDef = buf.readUInt8(0x23);
-
-  data.contestStatCool = buf.readUInt8(0x24);
-  data.contestStatBeauty = buf.readUInt8(0x25);
-  data.contestStatCute = buf.readUInt8(0x26);
-  data.contestStatSmart = buf.readUInt8(0x27);
-  data.contestStatTough = buf.readUInt8(0x28);
-  data.contestStatSheen = buf.readUInt8(0x29);
-
-  const markingByte = buf.readUInt8(0x2a);
-  data.hasCircleMarking = !!(markingByte & 0x01);
-  data.hasTriangleMarking = !!(markingByte & 0x02);
-  data.hasSquareMarking = !!(markingByte & 0x04);
-  data.hasHeartMarking = !!(markingByte & 0x08);
-  data.hasStarMarking = !!(markingByte & 0x10);
-  data.hasDiamondMarking = !!(markingByte & 0x20);
-
-  const pokerusByte = buf.readUInt8(0x2b);
-  data.pokerusDuration = pokerusByte & 15;
-  data.pokerusStrain = pokerusByte >>> 4;
-
-  data.medalData = buf.readUInt32LE(0x2c);
-  data.ribbonData = buf.readUIntLE(0x30, 6);
-  data.contestMemoryRibbonCount = buf.readUInt8(0x38);
-  data.battleMemoryRibbonCount = buf.readUInt8(0x39);
-  data.distributionSuperTrainingFlags = buf.readUInt8(0x3a); // TODO: Figure out what these are
-  data.nickname = stripNullChars(buf.toString('utf16le', 0x40, 0x58));
-
-  data.move1Id = buf.readUInt16LE(0x5a);
-  data.move2Id = buf.readUInt16LE(0x5c);
-  data.move3Id = buf.readUInt16LE(0x5e);
-  data.move4Id = buf.readUInt16LE(0x60);
-  data.move1Pp = buf.readUInt8(0x62);
-  data.move2Pp = buf.readUInt8(0x63);
-  data.move3Pp = buf.readUInt8(0x64);
-  data.move4Pp = buf.readUInt8(0x65);
-  data.move1Ppu = buf.readUInt8(0x66);
-  data.move2Ppu = buf.readUInt8(0x67);
-  data.move3Ppu = buf.readUInt8(0x68);
-  data.move4Ppu = buf.readUInt8(0x69);
-  data.eggMove1Id = buf.readUInt16LE(0x6a);
-  data.eggMove2Id = buf.readUInt16LE(0x6c);
-  data.eggMove3Id = buf.readUInt16LE(0x6e);
-  data.eggMove4Id = buf.readUInt16LE(0x70);
-
-  data.canDoSecretSuperTraining = !!buf.readUInt8(0x72);
-
-  const ivBytes = buf.readUInt32LE(0x74);
-  data.ivHp = ivBytes & 0x1f;
-  data.ivAtk = ivBytes >>> 5 & 0x1f;
-  data.ivDef = ivBytes >>> 10 & 0x1f;
-  data.ivSpe = ivBytes >>> 15 & 0x1f;
-  data.ivSpAtk = ivBytes >>> 20 & 0x1f;
-  data.ivSpDef = ivBytes >>> 25 & 0x1f;
-  data.isEgg = (ivBytes >>> 30) % 2 !== 0;
-  data.isNicknamed = (ivBytes >>> 31) % 2 !== 0;
-
-  data.notOt = stripNullChars(buf.toString('utf16le', 0x78, 0x90));
-  data.notOtGender = buf.readUInt8(0x92) ? 'F' : 'M';
-
-  data.currentHandlerIsOt = !buf.readUInt8(0x93);
-
-  data.geoLocation1RegionId = buf.readUInt8(0x94);
-  data.geoLocation1CountryId = buf.readUInt8(0x95);
-  data.geoLocation2RegionId = buf.readUInt8(0x96);
-  data.geoLocation2CountryId = buf.readUInt8(0x97);
-  data.geoLocation3RegionId = buf.readUInt8(0x98);
-  data.geoLocation3CountryId = buf.readUInt8(0x99);
-  data.geoLocation4RegionId = buf.readUInt8(0x9a);
-  data.geoLocation4CountryId = buf.readUInt8(0x9b);
-  data.geoLocation5RegionId = buf.readUInt8(0x9c);
-  data.geoLocation5CountryId = buf.readUInt8(0x9d);
-
-  data.notOtFriendship = buf.readUInt8(0xa2);
-  data.notOtAffection = buf.readUInt8(0xa3);
-  data.notOtMemoryIntensity = buf.readUInt8(0xa4);
-  data.notOtMemoryLine = buf.readUInt8(0xa5);
-  data.notOtMemoryFeeling = buf.readUInt8(0xa6);
-  data.notOtMemoryTextVar = buf.readUInt16LE(0xa8);
-
-  data.fullness = buf.readUInt8(0xae);
-  data.enjoyment = buf.readUInt8(0xaf);
-
-  data.ot = stripNullChars(buf.toString('utf16le', 0xb0, 0xc8));
-  data.otFriendship = buf.readUInt8(0xca);
-  data.otAffection = buf.readUInt8(0xcb);
-  data.otMemoryIntensity = buf.readUInt8(0xcc);
-  data.otMemoryLine = buf.readUInt8(0xcd);
-  data.otMemoryTextVar = buf.readUInt16LE(0xce);
-  data.otMemoryFeeling = buf.readUInt8(0xd0);
-
-  data.eggDate = getDateFromInt(buf.readUIntLE(0xd1, 3));
-  data.metDate = getDateFromInt(buf.readUIntLE(0xd4, 3));
-
-  data.eggLocationId = buf.readUInt16LE(0xd8);
-  data.metLocationId = buf.readUInt16LE(0xda);
-  data.ballId = buf.readUInt8(0xdc);
-
-  const encounterLevelByte = buf.readUInt8(0xdd);
-  data.levelMet = encounterLevelByte & 0x7f;
-  data.otGender = encounterLevelByte >>> 7 ? 'F' : 'M';
-
-  data.encounterTypeId = buf.readUInt8(0xde);
-  data.otGameId = buf.readUInt8(0xdf);
-  data.countryId = buf.readUInt8(0xe0);
-  data.regionId = buf.readUInt8(0xe1);
-  data.consoleRegion = ['J', 'U', 'E', '?', 'C', 'K', 'T'][buf.readUInt8(0xe2)];
-  data.language = [null, 'JPN', 'ENG', 'FRE', 'ITA', 'GER', '???', 'SPA', 'KOR'][buf.readUInt8(0xe3)];
-  data._rawPk6 = buf.toString('base64');
+  
+  data.wcId = buf.readUInt16LE(0x00);  
+  data.wcTitle = stripNullChars(buf.toString('utf16le', 0x02, 0x4B));
+  //data.dateReceived = buf.readUInt32LE(0x4C);
+  data.cardLocation = buf.readUInt8(0x50);
+  data.cardType = ['Pokemon', 'Item'][buf.readUInt8(0x51)]; 
+  data.giftType = giftType();
+	function giftType() {
+		if (buf.readUInt8(0x52) <= "0x07") {
+			return buf.readUInt8(0x52);
+		}
+		else 
+			return "Unknown"; // futureproofing
+	}
+  data.giftRedeemable = ['Infinite', 'Only once', 'Infinite', 'Only once', 'Once per day', '???', 'Once per day'][buf.readUInt8(0x52)];
+  data.giftStatus = ['Unused', 'Unused', 'Used', 'Used', 'Unused', '???', 'Used'][buf.readUInt8(0x52)];
+  data.cardColorId = buf.readUInt8(0x53);
+  data.cardColor = ['Green', 'Purple', 'Yellow'][buf.readUInt8(0x53)];
+  data.fullId = buf.readUInt32LE(0x68);
+  data.tid = buf.readUInt16LE(0x68);
+  data.sid = buf.readUInt16LE(0x6A);
+  data.originGame = buf.readUInt16LE(0x6C);
+  //data.quantity = buf.readUInt16LE(0x70);
+  data.encryptionConstant = ecSet();
+  	function ecSet() {
+		if (!buf.readUInt32LE(0x70) == "0x00000000") {
+			return ( ((buf.readUInt32LE(0x70)).toString(16)));
+		}
+	}  
+  data.primaryRibbons = buf.readUInt8(0x74);
+  data.secondaryRibbons = buf.readUInt8(0x75);
+  data.ballId = buf.readUInt8(0x76);  
+  data.heldItemId = buf.readUInt16LE(0x78);
+  data.move1Id = buf.readUInt16LE(0x7A);
+  data.move2Id = buf.readUInt16LE(0x7C);
+  data.move3Id = buf.readUInt16LE(0x7E);
+  data.move4Id = buf.readUInt16LE(0x80);
+  data.dexNo = buf.readUInt16LE(0x82);
+  data.formNo = buf.readUInt8(0x84);   
+  data.language = ['Yours', 'JPN', 'ENG', 'FRE', 'ITA', 'GER', '???', 'SPA', 'KOR', 'CHS', 'CHT'][buf.readUInt8(0x85)]; 
+  data.nickname = nicknameName();
+	function nicknameName() {
+		if (!buf.readUInt8(0x86) == "0x00") {
+			return stripNullChars(buf.toString('utf16le', 0x86, 0x9F));
+		}
+		else 
+			return "None";
+	}
+  data.nature = natureType();
+	function natureType() {
+		if (buf.readUInt8(0xA0) == "0xFF") {
+			return "Random";
+		}
+	}
+  data.natureLock = ['Hardy', 'Lonely', 'Brave', 'Adamant', 'Naughty', 'Bold', 'Docile', 'Relaxed', 'Impish', 'Lax', 'Timid', 'Hasty', 'Serious', 'Jolly', 'Naive', 'Modest', 'Mild', 'Quiet', 'Bashful', 'Rash', 'Calm', 'Gentle', 'Sassy', 'Careful', 'Quirky'][buf.readUInt8(0xA0)];
+  data.gender = ['M', 'F', 'Genderless', 'Random'][buf.readUInt8(0xA1)]; 
+  data.abilityType = ['Fixed ability 1', 'Fixed ability 2', 'Fixed HA', 'Random (no HA)', 'Random (including HA)'][buf.readUInt8(0xA2)]; 
+  data.pidType = ['Set PID', 'Can be shiny', 'Always shiny', 'Never shiny'][buf.readUInt8(0xA3)]; 
+  data.eggLocation = buf.readUInt16LE(0xA4);  
+  data.metLocation = buf.readUInt16LE(0xA6);  
+  data.metLevel = buf.readUInt8(0xA8);
+  data.contestStatCool = buf.readUInt8(0xA9);
+  data.contestStatBeauty = buf.readUInt8(0xAA);
+  data.contestStatCute = buf.readUInt8(0xAB);
+  data.contestStatSmart = buf.readUInt8(0xAC);
+  data.contestStatTough = buf.readUInt8(0xAD);
+  data.contestStatSheen = buf.readUInt8(0xAE);
+  
+  data.ivType = ivType();  
+	function ivType() {
+		if (buf.readUInt32LE(0xAF) == "0xFFFFFFFF") {
+			return "No guaranteed IVs of 31";
+			}
+		else if (buf.readUInt8(0xAF) == "0xFE") {
+			return "3 random guaranteed IVs of 31";
+			}
+		else if (buf.readUInt8(0xAF) == "0xFD") {
+			return "2 random guaranteed IVs of 31";
+			}
+		else if ((buf.readUInt8(0xAF) > "0xF0") && (buf.readUInt8(0xAF) <= "0xFC")) { 
+			return "Unknown"; // futureproofing
+		}  
+		else
+			return "Has fixed IVs";
+	}  
+	  data.ivHp = ivHp();
+		function ivHp() {
+			if (buf.readUInt8(0xAF) > "0xF0") {
+				return "Unset";
+				}
+			else
+				return (buf.readUInt8(0xAF));
+		}    
+	  data.ivAtk = ivAtk();
+		function ivAtk() {
+			if (buf.readUInt8(0xB0) == "0xFF") {
+				return "Unset";
+				}
+			else
+				return (buf.readUInt8(0xB0));
+		}  
+	  data.ivDef = ivDef();
+		function ivDef() {
+			if (buf.readUInt8(0xB1) == "0xFF") {
+				return "Unset";
+				}
+			else
+				return (buf.readUInt8(0xB1));
+		}
+	  data.ivSpe = ivSpe();
+		function ivSpe() {
+			if (buf.readUInt8(0xB2) == "0xFF") {
+				return "Unset";
+				}
+			else
+				return (buf.readUInt8(0xB2));
+		}
+	  data.ivSpAtk = ivSpAtk();
+		function ivSpAtk() {
+			if (buf.readUInt8(0xB3) == "0xFF") {
+				return "Unset";
+				}
+			else
+				return (buf.readUInt8(0xB3));
+		}
+	  data.ivSpDef = ivSpDef();
+		function ivSpDef() {
+			if (buf.readUInt8(0xB4) == "0xFF") {
+				return "Unset";
+				}
+			else
+				return (buf.readUInt8(0xB4));
+		}
+  data.otGender = ['M', 'F', '02', 'Yours'][buf.readUInt8(0xB5)];   
+  data.ot = stripNullChars(buf.toString('utf16le', 0xB6, 0xCF));
+  data.Level = buf.readUInt8(0xD0);
+  data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0xD1)]; 
+  data.additionalItem = buf.readUInt16LE(0xD2);
+  data.pid = pidSet();
+  	function pidSet() {
+		if (buf.readUInt8(0xA3) == "0x00") {
+			return ( ((buf.readUInt32LE(0xD4)).toString(16)));
+		}
+	}
+  data.eggMove1Id = buf.readUInt16LE(0xD8);
+  data.eggMove2Id = buf.readUInt16LE(0xDA);
+  data.eggMove3Id = buf.readUInt16LE(0xDC);
+  data.eggMove4Id = buf.readUInt16LE(0xDE); 
+  data.otMemoryIntensity = buf.readUInt8(0xE0);
+  data.otMemoryLine = buf.readUInt8(0xE1);
+  data.otMemoryTextVar = buf.readUInt16LE(0xE2);
+  data.otMemoryFeeling = buf.readUInt8(0xE4);
+  data.evHp = buf.readUInt8(0xE5);
+  data.evAtk = buf.readUInt8(0xE6);
+  data.evDef = buf.readUInt8(0xE7);
+  data.evSpe = buf.readUInt8(0xE8);
+  data.evSpAtk = buf.readUInt8(0xE9);
+  data.evSpDef = buf.readUInt8(0xEA);
 
   if (options.parseNames) {
     exports.assignReadableNames(data, options.language);
