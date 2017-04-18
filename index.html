@@ -1,5 +1,22 @@
-<strong>Parse a pk6 file:</strong>
-<input type="file" id="input" onchange="parseFile(this.files)"><br>
-<strong>Output:</strong><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>wcparse</title>
+ <link rel="stylesheet" href="styles.css" />
+ <script src="bundle.js"></script>
+</head>
+
+<body>
+
+<div id="container">
+
+<p>Parse a wc7 file:
+ <input type="file" id="input" accept=".wc7" onchange="parseFile(this.files)" />
+</p>
+
 <pre><code id="output"></code></pre>
-<script src="bundle.js"></script>
+
+</div>
+
+</body>
+</html>
