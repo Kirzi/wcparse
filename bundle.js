@@ -912,7 +912,7 @@ formes[646] = [null, 'White', 'Black'];
 formes[647] = [null, 'Resolute'];
 formes[648] = ['Aria', 'Pirouette'];
 formes[649] = [null, 'Douse', 'Shock', 'Burn', 'Chill'];
-formes[658] = [null, null, 'Ash'];
+formes[658] = [null, 'Ash', 'Ash'];
 
 [664, 665, 666].forEach(i => {
   formes[i] = [
