@@ -1,19 +1,73 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
  <title>wcparse</title>
+ <link rel="icon" type="image/png" href="cherishball.png">
  <link rel="stylesheet" href="styles.css" />
  <script src="bundle.js"></script>
 </head>
 <body>
 
-<div id="container">
+<header>
+</header>
 
-<p>Parse a wc6/wc7 file:
- <input type="file" id="input" onchange="parseFile(this.files)" />
-</p>
+<div id="wrapper">
 
-<pre><code id="output"></code></pre>
+<div id="wondercardbox">
+ <h1 class="title"><span id="wcTitle">Choose a wc7 file</span></h1>
+ <img id="pkmnImg" src="img/large/pokemon/regular/0.png" alt="pokemon" />
+ <p id="cardText"><input type="file" id="input" onchange="parseFile(this.files)" /></p>
+</div>
+
+<div id="pokemonbox">
+ <div class="left">
+  <p><span class="label">Pokémon: </span><span id="pokemonName"></span></p>
+  <p><span class="label">Form: </span><span id="formName"></span></p>
+  <p><span class="label">Nickname: </span><span id="nickname"></span></p>
+  <p><span class="label">Nature: </span><span id="nature"></span><span id="natureLock"></span></p>
+  <p><span class="label">Ability type: </span><span id="abilityType"></span></p>
+  <p><span class="label">IVs: </span><span id="ivInfo"></span></p>  
+  <p><span class="label">EVs: </span><span id="evInfo"></span></p>
+  <p><span class="label">Moves: </span></p>
+   <p> - <span id="move1Name"></span> <span id="relearn1"></span></p>
+   <p> - <span id="move2Name"></span> <span id="relearn2"></span></p>
+   <p> - <span id="move3Name"></span> <span id="relearn3"></span></p>
+   <p> - <span id="move4Name"></span> <span id="relearn4"></span></p>
+ </div>
+ <div class="right">
+  <p><span class="label">OT: </span><span id="ot"></span></p>
+  <p><span class="label">ID No: </span><span id="gen7Id"></span></p>
+  <p><span class="label">Gender: </span><span id="gender"></span></p>
+  <p><span class="label">Level: </span><span id="Level"></span></p>
+  <p><span class="label">Location: </span><span id="metLocation"></span><span id="eggLocation"></span></p>
+  <p><span class="label">Ball: </span><span id="ball"></span></p>
+  <p><span class="label">Item: </span><span id="heldItem"></span></p>
+  <p><span class="label">Additional item: </span><span id="additionalItem"></span></p>
+  <p><span class="label">Ribbon: </span><span id="Ribbon"></span></p></p>
+  <p><span class="label">PID: </span><span id="pidType"></span></p>
+  <p><span class="label">Obtainable: </span><span id="giftRedeemable"></span></p>
+ </div>
+</div>
+
+<div id="itembox">
+ <p><span id="item1"></span></p>
+ <p><span id="item2"></span></p>
+ <p><span id="item3"></span></p>
+ <p><span id="item4"></span></p>
+ <p><span id="item5"></span></p>
+ <p><span id="item6"></span></p>
+</div>
+
+<div id="anotherbox">
+ <p>Choose another wc7 file:
+  <input type="file" id="input" onchange="parseFile(this.files)" />
+ </p>
+</div>
+
+<div id="outputbox">
+ <h2>Full Output</h2>
+ <pre><code id="output"></code></pre>
+</div>
 
 </div>
 

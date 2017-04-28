@@ -2005,7 +2005,7 @@ const itemName = [
 ];
 
 const ballName = [
-	null,
+	"",
 	"Master Ball",
 	"Ultra Ball",
 	"Great Ball",
@@ -2035,7 +2035,7 @@ const ballName = [
 ];
 
 const moveName = [
-	"-",
+	"",
 	"Pound",
 	"Karate Chop",
 	"Double Slap",
@@ -2787,6 +2787,7 @@ const natureName = [
 
 var locationName, location;
 locationName = {
+  "0": "",
   "2": "Mystery Zone",
   "4": "Faraway Place",
   "6": "Route 1",
@@ -3099,106 +3100,11 @@ const cardText = [
 	"Thank you for coming to the Pokemon Center Kyoto! Please pick up your gift from the deliveryman in the game.",
 	"Thank you for coming to the Pokemon Center SKYTREE TOWN. Please pick up your gift from the deliveryman in the game.",
 	"This is a present from the Pokemon Trainer Club! Please pick up your gift from the deliveryman in any Pokemon Center.",
-	"You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to see the Pokemon Movie! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to see the 2016 Pokemon Movie! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to see the 2017 Pokemon Movie! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to see the 2018 Pokemon Movie! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to see the 2019 Pokemon Movie! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to see the 2020 Pokemon Movie! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to see the 2021 Pokemon Movie! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center MEGA TOKYO! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center Osaka! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center Fukuoka! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center Nagoya! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center Sapporo! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center Yokohama! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in the Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thanks for participating in the 2016 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thanks for participating in the 2017 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thanks for participating in the 2018 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thanks for participating in the 2019 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thanks for participating in the 2020 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thanks for participating in the 2021 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the 2016 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to the 2017 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the 2018 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the 2019 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the 2020 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the 2021 Pokemon World Championships! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to a Pokemon Video Game event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to a 2016 Pokemon Video Game event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to a 2017 Pokemon Video Game event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to a 2018 Pokemon Video Game event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to a 2019 Pokemon Video Game event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to a 2020 Pokemon Video Game event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to a 2021 Pokemon Video Game event! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in the Pokemon Video Game Championships! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in a 2016 Pokemon Video Game Championships event! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in a 2017 Pokemon Video Game Championships event! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in a 2018 Pokemon Video Game Championships event! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in a 2019 Pokemon Video Game Championships event! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in a 2020 Pokemon Video Game Championships event! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in a 2021 Pokemon Video Game Championships event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thank you for playing Pokemon! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the store! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in the Battle Competition! You have already picked up your gift from the deliveryman.",
-	"Thank you for participating in a Pokemon Video Game event! You have already picked up your gift from the deliveryman.",
-	"This is a gift from the Pokemon Video Game event! You have already picked up your gift from the deliveryman.",
-	"This is a present from the Pokemon Daisuki Club! You have already picked up your gift from the deliveryman.",
-	"Thank you for watching Pokemon programs! You have already picked up your gift from the deliveryman.",
-	"This is a gift from a Pokemon program! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Concert! You have already picked up your gift from the deliveryman.",
-	"Thank you for watching the Pokemon animation! You have already picked up your gift from the deliveryman.",
-	"Thank you for receiving this distribution! You have already picked up your gift from the deliveryman.",
-	"You have already picked up your gift from the deliveryman.",
-	"This is a gift from the Pokemon Global Link! You have already picked up your gift from the deliveryman.",
-	"Thank you for visiting the Pokemon Global Link! You have already picked up your gift from the deliveryman.",
-	"This is a gift from the Pokemon Global Link! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2016 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2017 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2018 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2019 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2020 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2021 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to a Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2016 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2017 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2018 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2019 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2020 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thanks for coming to a 2021 Pokemon event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the PokePark! You have already picked up your gift from the deliveryman.",
-	"This is a gift from the PokePark! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the PokePark in 2016! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the PokePark in 2017! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the PokePark in 2018! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the PokePark in 2019! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the PokePark in 2020! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the PokePark in 2021! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the event! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center Tohoku! You have already picked up your gift from the deliveryman.",
-	"This is a gift from GAME FREAK! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the stadium! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center TOKYO-BAY! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Store! You have already picked up your gift from the deliveryman.",
-	"Thank you for playing the Virtual Console! You have already picked up your gift from the deliveryman.",
-	"Thank you for playing Pokemon GO! You have already picked up your gift from the deliveryman.",
-	"Thank you for using Pokemon Bank! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Shop! You have already picked up your gift from the deliveryman.",
-	"Thank you for playing the demo version! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center Hiroshima! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center Kyoto! You have already picked up your gift from the deliveryman.",
-	"Thank you for coming to the Pokemon Center SKYTREE TOWN! You have already picked up your gift from the deliveryman.",
-	"This is a present from the Pokemon Trainer Club! You have already picked up your gift from the deliveryman.",
 ];
 
 var ribbonName1, ribbon;
 ribbonName1 = {
+  "0": "",
   "1": "Battle Champ Ribbon",
   "2": "Regional Champ Ribbon",
   "4": "National Champ Ribbon",
@@ -3211,6 +3117,7 @@ ribbonName1 = {
 
 var ribbonName2, ribbon;
 ribbonName2 = {
+  "0": "",
   "1": "World Champ Ribbon",
   "2": "Birthday Ribbon",
   "4": "Special Ribbon",
@@ -3222,12 +3129,19 @@ ribbonName2 = {
 
 exports.parseBuffer = (buf, options) => {
 
-  const data = {};
+  const data = {}; 
   
+  document.getElementById("anotherbox").style.display = "block";
+  document.getElementById("outputbox").style.display = "block";
+  document.querySelector("header").style.height = "200px";
+  document.getElementById("wondercardbox").style.top = "100px";
+
   data.wcId = buf.readUInt16LE(0x00);  
   data.wcTitle = stripNullChars(buf.toString('utf16le', 0x02, 0x4B));
-  //data.dateReceived = buf.readUInt32LE(0x4C);
+	document.getElementById("wcTitle").innerHTML = data.wcTitle;
+  data.dateReceived = buf.readUInt32LE(0x4C);
   data.cardText = cardText[buf.readUInt8(0x50)];  
+	document.getElementById("cardText").innerHTML = data.cardText;
   data.cardType = ['Pokemon', 'Item'][buf.readUInt8(0x51)]; 
   data.giftType = giftType();
 	function giftType() {
@@ -3236,158 +3150,416 @@ exports.parseBuffer = (buf, options) => {
 		}
 	}
   data.giftRedeemable = ['Infinite', 'Only once', 'Infinite', 'Only once', 'Once per day', '???', 'Once per day'][buf.readUInt8(0x52)];
+	document.getElementById("giftRedeemable").innerHTML = data.giftRedeemable;
   data.giftStatus = ['Unused', 'Unused', 'Used', 'Used', 'Unused', '???', 'Used'][buf.readUInt8(0x52)];
-  data.cardColor = ['Green', 'Purple', 'Yellow'][buf.readUInt8(0x53)];
-  data.fullId = buf.readUInt32LE(0x68);
-  data.tid = buf.readUInt16LE(0x68);
-  data.sid = buf.readUInt16LE(0x6A);
-  //data.originGame = buf.readUInt16LE(0x6C);
-  //data.quantity = buf.readUInt16LE(0x70);
-  data.encryptionConstant = ecSet();
-  	function ecSet() {
-		if (!buf.readUInt32LE(0x70) == "0x00000000") {
-			return ( ((buf.readUInt32LE(0x70)).toString(16)));
+  data.cardColorId = buf.readUInt8(0x53);  
+  data.cardColor = ['Blue', 'Purple', 'Yellow'][buf.readUInt8(0x53)];
+	document.querySelector("header").style.background = wcBackground();
+		function wcBackground() {
+			if (data.cardColorId == 0) {
+				return "#34BAC4"; // blue
+			}
+			else if (data.cardColorId == 1) {
+				return "#7F49BB"; // purple
+			}
+			else if (data.cardColorId == 2) {
+				return "#f6fa29"; // yellow
+			}
+			else
+				return "#222"; // futureproofing
 		}
-	}  
-  data.Ribbon = ribbonName1[buf.readUInt8(0x74)];
-  data.Ribbon = ribbonName2[buf.readUInt8(0x75)];
-  data.ball = ballName[buf.readUInt8(0x76)];  
-  data.heldItem = itemName[buf.readUInt16LE(0x78)];
-  data.move1Name = moveName[buf.readUInt16LE(0x7A)];
-  data.move2Name = moveName[buf.readUInt16LE(0x7C)];  
-  data.move3Name = moveName[buf.readUInt16LE(0x7E)];
-  data.move4Name = moveName[buf.readUInt16LE(0x80)];  
-  data.pokemonName = pokemonName[buf.readUInt16LE(0x82)];
-  data.formName = hasForm();
-	function hasForm() {
-		if (!buf.readUInt8(0x84) == 0) {
-			return formes[buf.readUInt16LE(0x82)][buf.readUInt8(0x84)];
-		}
-		else 
-			return "None";
-	}
-  data.language = ['Yours', 'JPN', 'ENG', 'FRE', 'ITA', 'GER', '???', 'SPA', 'KOR', 'CHS', 'CHT'][buf.readUInt8(0x85)]; 
-  data.nickname = nicknameName();
-	function nicknameName() {
-		if (!buf.readUInt8(0x86) == "0x00") {
-			return stripNullChars(buf.toString('utf16le', 0x86, 0x9F));
-		}
-		else 
-			return "None";
-	}
-  data.nature = natureType();
-	function natureType() {
-		if (buf.readUInt8(0xA0) == "0xFF") {
-			return "Random";
-		}
-	}
-  data.natureLock = natureName[buf.readUInt8(0xA0)];
-  data.gender = ['M', 'F', 'Genderless', 'Random'][buf.readUInt8(0xA1)]; 
-  data.abilityType = ['Fixed ability 1', 'Fixed ability 2', 'Fixed HA', 'Random (no HA)', 'Random (including HA)'][buf.readUInt8(0xA2)]; 
-  data.pidType = ['Set PID', 'Can be shiny', 'Always shiny', 'Never shiny'][buf.readUInt8(0xA3)]; 
-  data.eggLocation = locationName[buf.readUInt16LE(0xA4)];  
-  data.metLocation = locationName[buf.readUInt16LE(0xA6)]; 
-  data.metLevel = buf.readUInt8(0xA8);
-  data.contestStatCool = buf.readUInt8(0xA9);
-  data.contestStatBeauty = buf.readUInt8(0xAA);
-  data.contestStatCute = buf.readUInt8(0xAB);
-  data.contestStatSmart = buf.readUInt8(0xAC);
-  data.contestStatTough = buf.readUInt8(0xAD);
-  data.contestStatSheen = buf.readUInt8(0xAE);
   
-  data.ivType = ivType();  
-	function ivType() {
-		if (buf.readUInt32LE(0xAF) == "0xFFFFFFFF") {
-			return "No guaranteed IVs of 31";
+  if (data.cardType == 'Pokemon') {
+	  
+	  document.getElementById("pokemonbox").style.display = "block";
+	  document.getElementById("itembox").style.display = "none";
+	  
+	  data.fullId = buf.readUInt32LE(0x68);
+	  data.gen7Id = gen7Id();
+		function gen7Id() {
+			if (buf.readUInt32LE(0x68) == 0) {
+				return "Yours";
 			}
-		else if (buf.readUInt8(0xAF) == "0xFE") {
-			return "3 random guaranteed IVs of 31";
+			else
+				return buf.readUInt32LE(0x68).toString().slice(-6);
+		}
+		document.getElementById("gen7Id").innerHTML = data.gen7Id;
+	  data.tid = buf.readUInt16LE(0x68);
+	  data.sid = buf.readUInt16LE(0x6A);
+	  data.originGameId = buf.readUInt16LE(0x6C);
+	  data.encryptionConstant = ecSet();
+		function ecSet() {
+			if (!buf.readUInt32LE(0x70) == "0x00000000") {
+				return ( ((buf.readUInt32LE(0x70)).toString(16)));
 			}
-		else if (buf.readUInt8(0xAF) == "0xFD") {
-			return "2 random guaranteed IVs of 31";
-			}
-		else if ((buf.readUInt8(0xAF) > "0xF0") && (buf.readUInt8(0xAF) <= "0xFC")) { 
-			return "Unknown"; // futureproofing
 		}  
-		else
-			return "Has fixed IVs";
-	}  
-	  data.ivHp = ivHp();
-		function ivHp() {
-			if (buf.readUInt8(0xAF) > "0xF0") {
-				return "Unset";
-				}
+	  data.Ribbon = ribbonInfo();
+		function ribbonInfo() {
+			if (!buf.readUInt8(0x74) == 0) {
+				return ribbonName1[buf.readUInt8(0x74)];
+			}
 			else
-				return (buf.readUInt8(0xAF));
-		}    
-	  data.ivAtk = ivAtk();
-		function ivAtk() {
-			if (buf.readUInt8(0xB0) == "0xFF") {
-				return "Unset";
-				}
+				return ribbonName2[buf.readUInt8(0x75)];
+		}
+		document.getElementById("Ribbon").innerHTML = data.Ribbon;
+	  data.ball = ballName[buf.readUInt8(0x76)];  
+	    document.getElementById("ball").innerHTML = data.ball;
+	  data.heldItem = itemName[buf.readUInt16LE(0x78)];
+	    document.getElementById("heldItem").innerHTML = data.heldItem;
+	  data.move1Name = moveName[buf.readUInt16LE(0x7A)];
+	    document.getElementById("move1Name").innerHTML = data.move1Name;
+	  data.move2Name = moveName[buf.readUInt16LE(0x7C)];  
+	    document.getElementById("move2Name").innerHTML = data.move2Name;
+	  data.move3Name = moveName[buf.readUInt16LE(0x7E)];
+	    document.getElementById("move3Name").innerHTML = data.move3Name;
+	  data.move4Name = moveName[buf.readUInt16LE(0x80)];  
+	    document.getElementById("move4Name").innerHTML = data.move4Name;
+	  data.dexNo = buf.readUInt16LE(0x82);
+	  data.pokemonName = pokemonName[buf.readUInt16LE(0x82)];
+	    document.getElementById("pokemonName").innerHTML = data.pokemonName;
+	  data.formId = buf.readUInt8(0x84);
+	  data.formName = hasForm();
+		function hasForm() {
+			if (!buf.readUInt8(0x84) == 0) {
+				return formes[buf.readUInt16LE(0x82)][buf.readUInt8(0x84)];
+			}
+			else 
+				return "None";
+		}
+		document.getElementById("formName").innerHTML = data.formName;
+	  data.language = ['Yours', 'JPN', 'ENG', 'FRE', 'ITA', 'GER', '???', 'SPA', 'KOR', 'CHS', 'CHT'][buf.readUInt8(0x85)]; 
+	  data.nickname = nicknameName();
+		function nicknameName() {
+			if (!buf.readUInt8(0x86) == "0x00") {
+				return stripNullChars(buf.toString('utf16le', 0x86, 0x9F));
+			}
+			else 
+				return "None";
+		}
+		document.getElementById("nickname").innerHTML = data.nickname;
+	  data.nature = natureType();
+		function natureType() {
+			if (buf.readUInt8(0xA0) == "0xFF") {
+				return "Random";
+			}
 			else
-				return (buf.readUInt8(0xB0));
+				return "";
+		}
+		document.getElementById("nature").innerHTML = data.nature;
+	  data.natureLock = natureLock();
+		function natureLock() {
+			if (buf.readUInt8(0xA0) < "0xFF") {
+				return natureName[buf.readUInt8(0xA0)];
+			}
+			else
+				return "";
+		}
+		document.getElementById("natureLock").innerHTML = data.natureLock;
+	  data.gender = ['♂', '♀', 'Genderless', 'Random'][buf.readUInt8(0xA1)]; 
+	    document.getElementById("gender").innerHTML = data.gender;
+	  data.abilityType = ['Fixed ability 1', 'Fixed ability 2', 'Fixed HA', 'Random (no HA)', 'Random (including HA)'][buf.readUInt8(0xA2)]; 
+	    document.getElementById("abilityType").innerHTML = data.abilityType;
+	  data.pidId = buf.readUInt8(0xA3); 
+	  data.pidType = ['Set PID', 'Can be shiny', 'Always shiny', 'Never shiny'][buf.readUInt8(0xA3)]; 
+	    document.getElementById("pidType").innerHTML = data.pidType;
+	  data.eggLocation = locationName[buf.readUInt16LE(0xA4)];  
+	    document.getElementById("eggLocation").innerHTML = data.eggLocation;
+	  data.metLocation = locationName[buf.readUInt16LE(0xA6)]; 
+	    document.getElementById("metLocation").innerHTML = data.metLocation;
+	  data.metLevel = buf.readUInt8(0xA8);
+	  data.contestStatCool = buf.readUInt8(0xA9);
+	  data.contestStatBeauty = buf.readUInt8(0xAA);
+	  data.contestStatCute = buf.readUInt8(0xAB);
+	  data.contestStatSmart = buf.readUInt8(0xAC);
+	  data.contestStatTough = buf.readUInt8(0xAD);
+	  data.contestStatSheen = buf.readUInt8(0xAE);
+	  data.ivType = ivType();  
+		function ivType() {
+			if (buf.readUInt32LE(0xAF) == "0xFFFFFFFF") {
+				return "No guaranteed IVs of 31";
+				}
+			else if (buf.readUInt8(0xAF) == "0xFE") {
+				return "3 random guaranteed IVs of 31";
+				}
+			else if (buf.readUInt8(0xAF) == "0xFD") {
+				return "2 random guaranteed IVs of 31";
+				}
+			else if ((buf.readUInt8(0xAF) > "0xF0") && (buf.readUInt8(0xAF) <= "0xFC")) { 
+				return "Unknown"; // futureproofing
+			}  
+			else
+				return "Has fixed IVs";
 		}  
-	  data.ivDef = ivDef();
-		function ivDef() {
-			if (buf.readUInt8(0xB1) == "0xFF") {
-				return "Unset";
+		  data.ivHp = ivHp();
+			function ivHp() {
+				if (buf.readUInt8(0xAF) > "0xF0") {
+					return "Unset";
+					}
+				else
+					return (buf.readUInt8(0xAF));
+			}    
+		  data.ivAtk = ivAtk();
+			function ivAtk() {
+				if (buf.readUInt8(0xB0) == "0xFF") {
+					return "Unset";
+					}
+				else
+					return (buf.readUInt8(0xB0));
+			}  
+		  data.ivDef = ivDef();
+			function ivDef() {
+				if (buf.readUInt8(0xB1) == "0xFF") {
+					return "Unset";
+					}
+				else
+					return (buf.readUInt8(0xB1));
+			}
+		  data.ivSpe = ivSpe();
+			function ivSpe() {
+				if (buf.readUInt8(0xB2) == "0xFF") {
+					return "Unset";
+					}
+				else
+					return (buf.readUInt8(0xB2));
+			}
+		  data.ivSpAtk = ivSpAtk();
+			function ivSpAtk() {
+				if (buf.readUInt8(0xB3) == "0xFF") {
+					return "Unset";
+					}
+				else
+					return (buf.readUInt8(0xB3));
+			}
+		  data.ivSpDef = ivSpDef();
+			function ivSpDef() {
+				if (buf.readUInt8(0xB4) == "0xFF") {
+					return "Unset";
+					}
+				else
+					return (buf.readUInt8(0xB4));
+			}
+		document.getElementById("ivInfo").innerHTML = ivInfo();
+			function ivInfo() {
+				if (data.ivType == "Has fixed IVs") {
+					return (ivHpReadable() + "/" + ivAtkReadable()  + "/" + ivDefReadable()  + "/" + ivSpAtkReadable() + "/" + ivSpDefReadable() + "/" + ivSpeReadable())
 				}
-			else
-				return (buf.readUInt8(0xB1));
-		}
-	  data.ivSpe = ivSpe();
-		function ivSpe() {
-			if (buf.readUInt8(0xB2) == "0xFF") {
-				return "Unset";
+				else 
+					return ivType()
+			}
+			
+				function ivHpReadable() {
+					if (data.ivHp == "Unset"){
+						return "x";
+					}
+					else
+						return data.ivHp
 				}
-			else
-				return (buf.readUInt8(0xB2));
-		}
-	  data.ivSpAtk = ivSpAtk();
-		function ivSpAtk() {
-			if (buf.readUInt8(0xB3) == "0xFF") {
-				return "Unset";
+				function ivAtkReadable() {
+					if (data.ivAtk == "Unset"){
+						return "x";
+					}
+					else
+						return data.ivAtk
 				}
-			else
-				return (buf.readUInt8(0xB3));
-		}
-	  data.ivSpDef = ivSpDef();
-		function ivSpDef() {
-			if (buf.readUInt8(0xB4) == "0xFF") {
-				return "Unset";
+				function ivDefReadable() {
+					if (data.ivDef == "Unset"){
+						return "x";
+					}
+					else
+						return data.ivDef
 				}
+				function ivSpAtkReadable() {
+					if (data.ivSpAtk == "Unset"){
+						return "x";
+					}
+					else
+						return data.ivSpAtk
+				}
+				function ivSpDefReadable() {
+					if (data.ivSpDef == "Unset"){
+						return "x";
+					}
+					else
+						return data.ivSpDef
+				}
+				function ivSpeReadable() {
+					if (data.ivSpe == "Unset"){
+						return "x";
+					}
+					else
+						return data.ivSpe
+				}
+	  
+	  data.otGender = ['♂', '♀', '???', 'Yours'][buf.readUInt8(0xB5)];
+	  data.ot = otName();
+		function otName() {
+			if ((buf.readUInt8(0xB6)) == 0) {
+				return "Yours";
+			}
+			else return stripNullChars(buf.toString('utf16le', 0xB6, 0xCF))
+		}
+		document.getElementById("ot").innerHTML = data.ot;
+	  data.Level = buf.readUInt8(0xD0);
+	    document.getElementById("Level").innerHTML = data.Level;
+	  data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0xD1)]; 
+	  data.additionalItem = itemName[buf.readUInt16LE(0xD2)];
+	    document.getElementById("additionalItem").innerHTML = data.additionalItem;
+	  data.pid = pidSet();
+		function pidSet() {
+			if (buf.readUInt8(0xA3) == "0x00") {
+				return ( ((buf.readUInt32LE(0xD4)).toString(16)));
+			}
+		}
+	  data.eggMove1Name = moveName[buf.readUInt16LE(0xD8)];
+	  data.eggMove2Name = moveName[buf.readUInt16LE(0xDA)];
+	  data.eggMove3Name = moveName[buf.readUInt16LE(0xDC)];
+	  data.eggMove4Name = moveName[buf.readUInt16LE(0xDE)]; 
+	  data.otMemoryIntensity = buf.readUInt8(0xE0);
+	  data.otMemoryLine = buf.readUInt8(0xE1);
+	  data.otMemoryTextVar = buf.readUInt16LE(0xE2);
+	  data.otMemoryFeeling = buf.readUInt8(0xE4);
+	  data.evHp = buf.readUInt8(0xE5);
+	  data.evAtk = buf.readUInt8(0xE6);
+	  data.evDef = buf.readUInt8(0xE7);
+	  data.evSpe = buf.readUInt8(0xE8);
+	  data.evSpAtk = buf.readUInt8(0xE9);
+	  data.evSpDef = buf.readUInt8(0xEA);
+	  
+	    document.getElementById("evInfo").innerHTML = evInfo();
+			function evInfo() {
+				if ((data.evHp == 0) && (data.evAtk == 0) && (data.evDef == 0) && (data.evSpAtk == 0) && (data.evSpDef == 0) && (data.evSpe == 0)) {
+					return "None";
+				}
+				else
+					return (data.evHp + "/" + data.evAtk  + "/" + data.evDef  + "/" + data.evSpAtk + "/" + data.evSpDef + "/" + data.evSpe)
+			}
+	  
+	document.getElementById("relearn1").innerHTML = checkRelearnable1();
+		function checkRelearnable1() {
+			if (((data.move1Name == data.eggMove1Name) || (data.move1Name == data.eggMove2Name) || (data.move1Name == data.eggMove3Name) || (data.move1Name == data.eggMove4Name)) && (data.move1Name != "")) {
+				return "(relearnable)";
+			}
+			else return "";
+		}
+	document.getElementById("relearn2").innerHTML = checkRelearnable2();
+		function checkRelearnable2() {
+			if (((data.move2Name == data.eggMove1Name) || (data.move2Name == data.eggMove2Name) || (data.move2Name == data.eggMove3Name) || (data.move2Name == data.eggMove4Name)) && (data.move2Name != "")) {
+				return "(relearnable)";
+			}
+			else return "";
+		}
+	document.getElementById("relearn3").innerHTML = checkRelearnable3();
+		function checkRelearnable3() {
+			if (((data.move3Name == data.eggMove1Name) || (data.move3Name == data.eggMove2Name) || (data.move3Name == data.eggMove3Name) || (data.move3Name == data.eggMove4Name)) && (data.move3Name != "")) {
+				return "(relearnable)";
+			}
+			else return "";
+		}
+	document.getElementById("relearn4").innerHTML = checkRelearnable4();
+		function checkRelearnable4() {
+			if (((data.move4Name == data.eggMove1Name) || (data.move4Name == data.eggMove2Name) || (data.move4Name == data.eggMove3Name) || (data.move4Name == data.eggMove4Name)) && (data.move4Name != "")) {
+				return "(relearnable)";
+			}
+			else return "";
+		}
+	
+  }
+  
+  if (data.cardType == 'Item') {
+	  
+	  document.getElementById("pokemonbox").style.display = "none";
+	  document.getElementById("itembox").style.display = "block";
+	  
+	  // data.gen6ItemQuantity = buf.readUInt16LE(0x70); TODO: wc6 support
+	  data.item1 = itemName[(buf.readUInt16LE(0x68))];
+	  data.item1Q = buf.readUInt16LE(0x6A);
+	  data.item2 = itemName[(buf.readUInt16LE(0x6C))];
+	  data.item2Q = buf.readUInt16LE(0x6E);
+	  data.item3 = itemName[(buf.readUInt16LE(0x70))];
+	  data.item3Q = buf.readUInt16LE(0x72);
+	  data.item4 = itemName[(buf.readUInt16LE(0x74))];
+	  data.item4Q = buf.readUInt16LE(0x76);
+	  data.item5 = itemName[(buf.readUInt16LE(0x78))];
+	  data.item5Q = buf.readUInt16LE(0x7A);
+	  data.item6 = itemName[(buf.readUInt16LE(0x7C))];
+	  data.item6Q = buf.readUInt16LE(0x7E);
+	  
+	  document.getElementById("item1").innerHTML = item1();
+		function item1() {
+			if (data.item1Q > 0) {
+				return (data.item1 + " x" + data.item1Q);
+			}
 			else
-				return (buf.readUInt8(0xB4));
+				return "";
 		}
-  data.otGender = ['M', 'F', '02', 'Yours'][buf.readUInt8(0xB5)];   
-  data.ot = stripNullChars(buf.toString('utf16le', 0xB6, 0xCF));
-  data.Level = buf.readUInt8(0xD0);
-  data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0xD1)]; 
-  data.additionalItem = itemName[buf.readUInt16LE(0xD2)];
-  data.pid = pidSet();
-  	function pidSet() {
-		if (buf.readUInt8(0xA3) == "0x00") {
-			return ( ((buf.readUInt32LE(0xD4)).toString(16)));
+	  document.getElementById("item2").innerHTML = item2();
+		function item2() {
+			if (data.item2Q > 0) {
+				return (data.item2 + " x" + data.item2Q);
+			}
+			else
+				return "";
 		}
-	}
-  data.eggMove1Name = moveName[buf.readUInt16LE(0xD8)];
-  data.eggMove2Name = moveName[buf.readUInt16LE(0xDA)];
-  data.eggMove3Name = moveName[buf.readUInt16LE(0xDC)];
-  data.eggMove4Name = moveName[buf.readUInt16LE(0xDE)]; 
-  data.otMemoryIntensity = buf.readUInt8(0xE0);
-  data.otMemoryLine = buf.readUInt8(0xE1);
-  data.otMemoryTextVar = buf.readUInt16LE(0xE2);
-  data.otMemoryFeeling = buf.readUInt8(0xE4);
-  data.evHp = buf.readUInt8(0xE5);
-  data.evAtk = buf.readUInt8(0xE6);
-  data.evDef = buf.readUInt8(0xE7);
-  data.evSpe = buf.readUInt8(0xE8);
-  data.evSpAtk = buf.readUInt8(0xE9);
-  data.evSpDef = buf.readUInt8(0xEA);
+	  document.getElementById("item3").innerHTML = item3();
+		function item3() {
+			if (data.item3Q > 0) {
+				return (data.item3 + " x" + data.item3Q);
+			}
+			else
+				return "";
+		}
+	  document.getElementById("item4").innerHTML = item4();
+		function item4() {
+			if (data.item4Q > 0) {
+				return (data.item4 + " x" + data.item4Q);
+			}
+			else
+				return "";
+		}
+	  document.getElementById("item5").innerHTML = item5();
+		function item5() {
+			if (data.item5Q > 0) {
+				return (data.item5 + " x" + data.item5Q);
+			}
+			else
+				return "";
+		}
+	  document.getElementById("item6").innerHTML = item6();
+		function item6() {
+			if (data.item6Q > 0) {
+				return (data.item6 + " x" + data.item6Q);
+			}	 
+			else
+				return "";
+		}	
 
+  }  
+  
+	document.getElementById("pkmnImg").src = "img/large/pokemon" + shinyCheck() + pokemonImg() + ".png";
+		function pokemonImg() {
+			if (data.isEgg == 'Is egg') {
+				return "egg";
+			}
+			else if (data.cardType == 'Item') {
+				return "0";
+			}
+			else if (data.formId > 0) {
+				return (data.dexNo + "-" + data.formId);
+			}
+			else 
+				return data.dexNo;
+		}
+		function shinyCheck() {
+			if (data.pidId == 2) {
+				return "/shiny/";
+			}
+			else 
+				return "/regular/";
+		} 
+  
   return data;
-};
+  
+}; 
 
 const levelToExperienceCache = {
   'slow-then-very-fast': {},
