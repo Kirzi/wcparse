@@ -1,4 +1,4 @@
-* {
+﻿* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -13,10 +13,105 @@ body {
 	background-color: #eee;
 }
 
-#container {
-	width: 80%;
-	margin: 20px auto;
+header {
+	width: 100%;
+	height: 400px;
+	background-color: #e53935;
+	box-shadow: 0 1px 3px 1px rgba(128,128,128,.5);
+	position: relative;
+	z-index: 1;
+}
+
+#wrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#wondercardbox {
+	z-index: 2;
+	position: absolute;
+	top: 300px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 500px;
+	height: 200px;
+}
+
+#cardText {
+	margin-top: 20px;
+}
+
+#pkmnImg {
+	float: right;
+	background-image: url("img/large/ballbg.png");
+}
+
+#relearn1, #relearn2, #relearn3, #relearn4 {
+	font-size: .7em;
+	color: #444;
+}
+
+.box,
+#wondercardbox,
+#pokemonbox,
+#itembox,
+#anotherbox,
+#outputbox {
 	padding: 30px;
 	background-color: #fff;
-	box-shadow: 0 1px 3px 1px #ccc;
+	box-shadow: 0 1px 3px 1px rgba(128,128,128,.5);
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+#pokemonbox,
+#itembox,
+#anotherbox,
+#outputbox {
+	display: none;
+}
+
+.left,
+.right {
+	width: 50%;
+	float: left;
+	padding: 85px 100px 0 100px;
+}
+
+#itembox {
+	padding-top: 125px;
+	text-align: center;
+}
+	#itembox p {
+		font-weight: 700;
+	}
+
+#anotherbox {
+	text-align: center;
+}
+	
+h1 {
+	font-size: 1.3em;
+}
+
+h2 {
+	font-size: 1.1em;
+}
+
+h1, h2, h3 {
+	margin-bottom: 10px;
+}
+
+p:not(:last-child) {
+	line-height: 20px;
+	margin-bottom: 10px;
+}
+
+.title {
+	text-align: center;
+}
+
+.label {
+	font-weight: 700;
 }
