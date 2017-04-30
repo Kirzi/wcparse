@@ -3515,16 +3515,37 @@ ribbonName2 = {
 };
 
 
-exports.parseBuffer = (buf, options) => {
+exports.parseWCBuffer = (buf, options) => {
+		//BOSS = 1446, wc6full = 784, wc6 = 264
+	if (buf.length==1446) {
+		return parseWCFullData(buf.slice(662), options);
+	} else if (buf.length==784) {
+		return parseWCFullData(buf, options);
+	} else if (buf.length==264) {
+		return parseWCData(buf, options);
+	} else {
+		throw new TypeError('Try actually uploading a wondercard this time.');
+	}
+}
+
+function parseWCData (buf, options) {
 
   const data = {}; 
-  
+
   document.getElementById("anotherbox").style.display = "block";
   document.getElementById("outputbox").style.display = "block";
   document.querySelector("header").style.height = "200px";
   document.getElementById("wondercardbox").style.top = "100px";
 
-  data.wcType = document.getElementById('input').value.slice(-3);
+  data.wcType = wcType();
+	function wcType() {
+		if ((document.getElementById('input').value.slice(-4) == ".wc6") || (document.getElementById('input').value.slice(-8) == ".wc6full")) {
+			return "wc6";
+		}
+		else
+			return "wc7"; 
+	} // I'm just assuming nobody has BOSS files for wc6s anymore
+  
   data.wcId = buf.readUInt16LE(0x00);  
   data.wcTitle = stripNullChars(buf.toString('utf16le', 0x02, 0x4B));
 	document.getElementById("wcTitle").innerHTML = data.wcTitle;
@@ -4005,10 +4026,25 @@ exports.parseBuffer = (buf, options) => {
 			gen7exclusive[i].style.display = 'block';
 		}
 	}
+	
+	document.getElementById("wcfullbox").style.display = "none";
   
   return data;
   
 }; 
+
+function parseWCFullData (buf, options) {
+	const data = parseWCData(buf.slice(520), options);
+	
+	document.querySelector("header").style.height = "400px";
+	document.getElementById("wcfullbox").style.display = "block";
+
+	
+	data.description = stripNullChars(buf.toString('utf16le', 0x04, 0x200));
+		document.getElementById("wcfulltext").innerHTML = data.description.replace(/(\n)/gm,"</p><p>");
+	
+	return data;
+}
 
 const levelToExperienceCache = {
   'slow-then-very-fast': {},
@@ -4267,7 +4303,7 @@ exports.assignReadableNames = (data, language) => {
 };
 
 exports.parseFile = (path, options) => {
-  return exports.parseBuffer(require('fs').readFileSync(path), options);
+  return exports.parseWCBuffer(require('fs').readFileSync(path), options);
 };
 
 function tryRequire (path, errorMessage) {
@@ -6101,7 +6137,7 @@ function setOutput (obj) {
 window.parseFile = fileList => {
   require('blob-to-buffer')(fileList[0].slice(0), (blobErr, result) => {
     try {
-      setOutput(blobErr || require('.').parseBuffer(result), null, 4);
+      setOutput(blobErr || require('.').parseWCBuffer(result), null, 4);
     } catch (parseErr) {
       setOutput(parseErr);
     }

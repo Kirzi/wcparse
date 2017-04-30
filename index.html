@@ -14,9 +14,13 @@
 <div id="wrapper">
 
 <div id="wondercardbox">
- <h1 class="title"><span id="wcTitle">Choose a wc7 file</span></h1>
+ <h1 class="title"><span id="wcTitle">Choose a wc6/wc7 file</span></h1>
  <img id="pkmnImg" src="img/large/pokemon/regular/0.png" alt="pokemon" />
  <p id="cardText"><input type="file" id="input" onchange="parseFile(this.files)" /></p>
+</div>
+
+<div id="wcfullbox">
+ <p><span id="wcfulltext"></span></p>
 </div>
 
 <div id="pokemonbox">
@@ -59,7 +63,7 @@
 </div>
 
 <div id="anotherbox">
- <p>Choose another wc7 file:
+ <p>Choose another wc6/wc7 file:
   <input type="file" id="input" onchange="parseFile(this.files)" />
  </p>
 </div>
