@@ -27,15 +27,19 @@ header {
 	margin: 0 auto;
 }
 
-#wondercardbox {
+#wondercardbox,
+#wcfullbox {
 	z-index: 2;
 	position: absolute;
-	top: 300px;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
 	width: 500px;
 	height: 200px;
+}
+
+#wondercardbox {
+	top: 300px;
 }
 
 #cardText {
@@ -54,6 +58,7 @@ header {
 
 .box,
 #wondercardbox,
+#wcfullbox,
 #pokemonbox,
 #itembox,
 #anotherbox,
@@ -64,6 +69,16 @@ header {
 	margin-bottom: 15px;
 	overflow: hidden;
 }
+
+#wcfullbox {
+	top: 300px;
+	display: none;
+	padding: 20px 80px;
+}
+
+	#wcfullbox p {
+		line-height: 16px;
+	}
 
 #pokemonbox,
 #itembox,
