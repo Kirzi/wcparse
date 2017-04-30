@@ -2785,8 +2785,306 @@ const natureName = [
 	'Quirky'
 ];
 
-var locationName, location;
-locationName = {
+var locationName6, location6;
+locationName6 = {
+  "0": "",
+  "2": "Mystery Zone",
+  "4": "Faraway place",
+  "6": "Vaniville Town",
+  "8": "Route 1",
+  "9": "Vaniville Pathway",
+  "10": "Aquacorde Town",
+  "12": "Route 2",
+  "13": "Avance Trail",
+  "14": "Santalune Forest",
+  "16": "Route 3",
+  "17": "Ouvert Way",
+  "18": "Santalune City",
+  "20": "Route 4",
+  "21": "Parterre Way",
+  "22": "Lumiose City",
+  "24": "Lumiose Gym",
+  "26": "Lysandre Labs",
+  "28": "Route 5",
+  "29": "Versant Road",
+  "30": "Camphrier Town",
+  "32": "Shabboneau Castle",
+  "34": "Route 6",
+  "35": "Palais Lane",
+  "36": "Parfum Palace",
+  "38": "Route 7",
+  "39": "Rivière Walk",
+  "40": "Cyllage City",
+  "42": "Route 8",
+  "43": "Muraille Coast",
+  "44": "Ambrette Town",
+  "46": "Route 9",
+  "47": "Spikes Passage",
+  "48": "Battle Chateau",
+  "50": "Route 10",
+  "51": "Menhir Trail",
+  "52": "Geosenge Town",
+  "54": "Route 11",
+  "55": "Miroir Way",
+  "56": "Reflection Cave",
+  "58": "Shalour City",
+  "60": "Tower of Mastery",
+  "62": "Route 12",
+  "63": "Fourrage Road",
+  "64": "Coumarine City",
+  "66": "Route 13",
+  "67": "Lumiose Badlands",
+  "68": "Route 14",
+  "69": "Laverre Nature Trail",
+  "70": "Laverre City",
+  "72": "Poké Ball Factory",
+  "74": "Route 15",
+  "75": "Brun Way",
+  "76": "Dendemille Town",
+  "78": "Route 16",
+  "79": "Mélancolie Path",
+  "82": "Frost Cavern",
+  "84": "Route 17",
+  "85": "Mamoswine Road",
+  "86": "Anistar City",
+  "88": "Route 18",
+  "89": "Vallée Étroite Way",
+  "90": "Couriway Town",
+  "92": "Route 19",
+  "93": "Grande Vallée Way",
+  "94": "Snowbelle City",
+  "96": "Route 20",
+  "97": "Winding Woods",
+  "98": "Pokémon Village",
+  "100": "Route 21",
+  "101": "Dernière Way",
+  "102": "Route 22",
+  "103": "Détourner Way",
+  "104": "Victory Road",
+  "106": "Pokémon League",
+  "108": "Kiloude City",
+  "110": "Battle Maison",
+  "112": "Azure Bay",
+  "114": "Gate",
+  "116": "Gate",
+  "118": "Gate",
+  "120": "Gate",
+  "122": "Gate",
+  "124": "Gate",
+  "126": "Gate",
+  "128": "Gate",
+  "130": "Gate",
+  "132": "Glittering Cave",
+  "134": "Connecting Cave",
+  "135": "Connecting Cave",
+  "136": "Kalos Power Plant",
+  "138": "Team Flare Secret HQ",
+  "140": "Terminus Cave",
+  "142": "Lost Hotel",
+  "144": "Chamber of Emptiness",
+  "146": "Sea Spirit's Den",
+  "148": "Friend Safari",
+  "150": "Blazing Chamber",
+  "152": "Flood Chamber",
+  "154": "Ironworks Chamber",
+  "156": "Dragonmark Chamber",
+  "158": "Radiant Chamber",
+  "160": "Pokémon League Gate",
+  "162": "Lumiose Station",
+  "164": "Kiloude Station",
+  "166": "Ambrette Aquarium",
+  "168": "Unknown Dungeon",
+  "170": "Littleroot Town",
+  "172": "Oldale Town",
+  "174": "Dewford Town",
+  "176": "Lavaridge Town",
+  "178": "Fallarbor Town",
+  "180": "Verdanturf Town",
+  "182": "Pacifidlog Town",
+  "184": "Petalburg City",
+  "186": "Slateport City",
+  "188": "Mauville City",
+  "190": "Rustboro City",
+  "192": "Fortree City",
+  "194": "Lilycove City",
+  "196": "Mossdeep City",
+  "198": "Sootopolis City",
+  "200": "Ever Grande City",
+  "202": "Pokémon League",
+  "204": "Route 101",
+  "206": "Route 102",
+  "208": "Route 103",
+  "210": "Route 104",
+  "212": "Route 105",
+  "214": "Route 106",
+  "216": "Route 107",
+  "218": "Route 108",
+  "220": "Route 109",
+  "222": "Route 110",
+  "224": "Route 111",
+  "226": "Route 112",
+  "228": "Route 113",
+  "230": "Route 114",
+  "232": "Route 115",
+  "234": "Route 116",
+  "236": "Route 117",
+  "238": "Route 118",
+  "240": "Route 119",
+  "242": "Route 120",
+  "244": "Route 121",
+  "246": "Route 122",
+  "248": "Route 123",
+  "250": "Route 124",
+  "252": "Route 125",
+  "254": "Route 126",
+  "256": "Route 127",
+  "258": "Route 128",
+  "260": "Route 129",
+  "262": "Route 130",
+  "264": "Route 131",
+  "266": "Route 132",
+  "268": "Route 133",
+  "270": "Route 134",
+  "272": "Meteor Falls",
+  "274": "Rusturf Tunnel",
+  "276": "???",
+  "278": "Desert Ruins",
+  "280": "Granite Cave",
+  "282": "Petalburg Woods",
+  "284": "Mt. Chimney",
+  "286": "Jagged Pass",
+  "288": "Fiery Path",
+  "290": "Mt. Pyre",
+  "292": "Team Aqua Hideout",
+  "294": "Seafloor Cavern",
+  "296": "Cave of Origin",
+  "298": "Victory Road",
+  "300": "Shoal Cave",
+  "302": "New Mauville",
+  "304": "Sea Mauville",
+  "306": "Island Cave",
+  "308": "Ancient Tomb",
+  "310": "Sealed Chamber",
+  "312": "Scorched Slab",
+  "314": "Team Magma Hideout",
+  "316": "Sky Pillar",
+  "318": "Battle Resort",
+  "320": "Southern Island",
+  "322": "S.S. Tidal",
+  "324": "Safari Zone",
+  "326": "Mirage Forests",
+  "328": "Mirage Caves",
+  "330": "Mirage Islands",
+  "332": "Mirage Mountains",
+  "334": "Trackless Forest",
+  "336": "Pathless Plain",
+  "338": "Nameless Cavern",
+  "340": "Fabled Cave",
+  "342": "Gnarled Den",
+  "344": "Crescent Isle",
+  "346": "Secret Islet",
+  "348": "Soaring in the sky",
+  "350": "Secret Shore",
+  "352": "Secret Meadow",
+  "354": "Secret Base",
+  "30001": "a Link Trade",
+  "30002": "a Link Trade",
+  "30003": "the Kanto region",
+  "30004": "the Johto region",
+  "30005": "the Hoenn region",
+  "30006": "the Sinnoh region",
+  "30007": "a distant land",
+  "30008": "----------",
+  "30009": "the Unova region",
+  "30010": "the Kalos region",
+  "30011": "Pokémon Link",
+  "40001": "a lovely place",
+  "40002": "a faraway place",
+  "40003": "a Pokémon movie",
+  "40004": "Pokémon Movie 13",
+  "40005": "Pokémon Movie 14",
+  "40006": "Pokémon Movie 15",
+  "40007": "Pokémon Movie 16",
+  "40008": "Pokémon Movie 17",
+  "40009": "Pokémon Movie 18",
+  "40010": "a Pokémon Center",
+  "40011": "the Pokémon cartoon",
+  "40012": "PC Tokyo",
+  "40013": "PC Osaka",
+  "40014": "PC Fukuoka",
+  "40015": "PC Nagoya",
+  "40016": "PC Sapporo",
+  "40017": "PC Yokohama",
+  "40018": "PC Tohoku",
+  "40019": "PC Tokyo Bay",
+  "40020": "a Pokémon Store",
+  "40021": "a WCS",
+  "40022": "WCS 2013",
+  "40023": "WCS 2014",
+  "40024": "WCS 2015",
+  "40025": "WCS 2016",
+  "40026": "WCS 2017",
+  "40027": "WCS 2018",
+  "40028": "Worlds",
+  "40029": "Worlds 2013",
+  "40030": "Worlds 2014",
+  "40031": "Worlds 2015",
+  "40032": "Worlds 2016",
+  "40033": "Worlds 2017",
+  "40034": "Worlds 2018",
+  "40035": "a VGE",
+  "40036": "VGE 2013",
+  "40037": "VGE 2014",
+  "40038": "VGE 2015",
+  "40039": "VGE 2016",
+  "40040": "VGE 2017",
+  "40041": "VGE 2018",
+  "40042": "a Pokémon event",
+  "40043": "a Battle Competition",
+  "40044": "a game event",
+  "40045": "the Pokémon Fan Club",
+  "40046": "a Pokémon TV program",
+  "40047": "a concert",
+  "40048": "an online Present",
+  "40049": "the PGL",
+  "40050": "Pokémon Event 13",
+  "40051": "Pokémon Event 14",
+  "40052": "Pokémon Event 15",
+  "40053": "Pokémon Event 16",
+  "40054": "Pokémon Event 17",
+  "40055": "Pokémon Event 18",
+  "40056": "Pokémon Festa",
+  "40057": "Pokémon Festa 13",
+  "40058": "Pokémon Festa 14",
+  "40059": "Pokémon Festa 15",
+  "40060": "Pokémon Festa 16",
+  "40061": "Pokémon Festa 17",
+  "40062": "Pokémon Festa 18",
+  "40063": "POKÉPARK",
+  "40064": "POKÉPARK",
+  "40065": "POKÉPARK",
+  "40066": "POKÉPARK",
+  "40067": "POKÉPARK",
+  "40068": "POKÉPARK",
+  "40069": "POKÉPARK",
+  "40070": "an event site",
+  "40071": "GAME FREAK",
+  "40072": "a stadium",
+  "40073": "a VGC",
+  "40074": "the VGC 2013",
+  "40075": "the VGC 2014",
+  "40076": "the VGC 2015",
+  "40077": "the VGC 2016",
+  "40078": "the VGC 2017",
+  "40079": "the VGC 2018",
+  "60001": "a stranger",
+  "60002": "Day Care helpers",
+  "60003": "a treasure hunter",
+  "60004": "an old hot-springs visitor"
+};
+
+var locationName7, location7;
+locationName7 = {
   "0": "",
   "2": "Mystery Zone",
   "4": "Faraway Place",
@@ -3003,7 +3301,96 @@ locationName = {
   "60004": "an old hot-springs visitor"
 };
 
-const cardText = [
+const cardText6 = [
+	"Thank you for coming to see the Pokémon Movie! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to see the 2013 Pokémon Movie! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to see the 2014 Pokémon Movie! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to see the 2015 Pokémon Movie! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to see the 2016 Pokémon Movie! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to see the 2017 Pokémon Movie! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to see the 2018 Pokémon Movie! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Center! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Center Tokyo! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Center Osaka! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Center Fukuoka! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Center Nagoya! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Center Sapporo! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Center Yokohama! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in the Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in the 2013 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in the 2014 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in the 2015 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in the 2016 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in the 2017 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in the 2018 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the 2013 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the 2014 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the 2015 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the 2016 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the 2017 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the 2018 Pokémon World Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a Pokémon Video Game event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2013 Pokémon Video Game event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2014 Pokémon Video Game event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2015 Pokémon Video Game event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2016 Pokémon Video Game event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2017 Pokémon Video Game event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2018 Pokémon Video Game event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in the Pokémon Video Game Championships! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in a 2013 Pokémon Video Game Championships event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in a 2014 Pokémon Video Game Championships event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in a 2015 Pokémon Video Game Championships event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in a 2016 Pokémon Video Game Championships event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in a 2017 Pokémon Video Game Championships event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in a 2018 Pokémon Video Game Championships event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for playing Pokémon! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the store! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in the Battle Competition! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for participating in a Pokémon Video Game event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"This is a gift from the Pokémon Video Game event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"This is a present from the Pokémon Fan Club! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for watching Pokémon programs! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"This is a gift from a Pokémon program! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Concert! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for watching the Pokémon animation! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for receiving this distribution! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"This is a gift from the Pokémon Global Link! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for visiting the Pokémon Global Link! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"This is a gift from the Pokémon Global Link! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2013 Pokémon event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2014 Pokémon event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2015 Pokémon event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2016 Pokémon event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2017 Pokémon event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to a 2018 Pokémon event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to Pokémon Festa! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to Pokémon Festa 2013! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to Pokémon Festa 2014! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to Pokémon Festa 2015! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to Pokémon Festa 2016! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to Pokémon Festa 2017! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to Pokémon Festa 2018! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the PokéPark! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"This is a gift from the PokéPark! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the PokéPark in 2013! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the PokéPark in 2014! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the PokéPark in 2015! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the PokéPark in 2016! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the PokéPark in 2017! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the PokéPark in 2018! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the event! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Center Tohoku! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"This is a gift from GAME FREAK! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the stadium! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Center Tokyo Bay! Please pick up your gift from the delivery girl in any Pokémon Center.",
+	"Thank you for coming to the Pokémon Store! Please pick up your gift from the delivery girl in any Pokémon Center.",
+];
+
+const cardText7 = [
 	"Please pick up your gift from the deliveryman in any Pokemon Center.",
 	"Thanks for coming to see the Pokemon Movie! Please pick up your gift from the deliveryman in any Pokemon Center.",
 	"Thank you for coming to see the 2016 Pokemon Movie! Please pick up your gift from the deliveryman in any Pokemon Center.",
@@ -3127,6 +3514,7 @@ ribbonName2 = {
   "64": "Premier Ribbon",
 };
 
+
 exports.parseBuffer = (buf, options) => {
 
   const data = {}; 
@@ -3136,11 +3524,19 @@ exports.parseBuffer = (buf, options) => {
   document.querySelector("header").style.height = "200px";
   document.getElementById("wondercardbox").style.top = "100px";
 
+  data.wcType = document.getElementById('input').value.slice(-3);
   data.wcId = buf.readUInt16LE(0x00);  
   data.wcTitle = stripNullChars(buf.toString('utf16le', 0x02, 0x4B));
 	document.getElementById("wcTitle").innerHTML = data.wcTitle;
   data.dateReceived = buf.readUInt32LE(0x4C);
-  data.cardText = cardText[buf.readUInt8(0x50)];  
+  data.cardText = cardText();
+  	function cardText() {
+		if (data.wcType == "wc7") {
+			return cardText7[buf.readUInt8(0x50)];
+		}
+		else
+			return cardText6[buf.readUInt8(0x50)]
+	}
 	document.getElementById("cardText").innerHTML = data.cardText;
   data.cardType = ['Pokemon', 'Item'][buf.readUInt8(0x51)]; 
   data.giftType = giftType();
@@ -3156,17 +3552,22 @@ exports.parseBuffer = (buf, options) => {
   data.cardColor = ['Blue', 'Purple', 'Yellow'][buf.readUInt8(0x53)];
 	document.querySelector("header").style.background = wcBackground();
 		function wcBackground() {
-			if (data.cardColorId == 0) {
-				return "#34BAC4"; // blue
+			if (data.wcType == "wc7") {
+				if (data.cardColorId == 0) {
+					return "#34BAC4"; // blue
+				}
+				else if (data.cardColorId == 1) {
+					return "#7F49BB"; // purple
+				}
+				else if (data.cardColorId == 2) {
+					return "#f6fa29"; // yellow
+				}
+				else
+					return "#222"; // futureproofing
 			}
-			else if (data.cardColorId == 1) {
-				return "#7F49BB"; // purple
+			else if (data.wcType == "wc6") {
+					return "#0759A5"; 
 			}
-			else if (data.cardColorId == 2) {
-				return "#f6fa29"; // yellow
-			}
-			else
-				return "#222"; // futureproofing
 		}
   
   if (data.cardType == 'Pokemon') {
@@ -3174,17 +3575,24 @@ exports.parseBuffer = (buf, options) => {
 	  document.getElementById("pokemonbox").style.display = "block";
 	  document.getElementById("itembox").style.display = "none";
 	  
-	  data.fullId = buf.readUInt32LE(0x68);
-	  data.gen7Id = gen7Id();
-		function gen7Id() {
+	  data.idNo = idNo();
+		function idNo() {
 			if (buf.readUInt32LE(0x68) == 0) {
 				return "Yours";
 			}
-			else
-				return buf.readUInt32LE(0x68).toString().slice(-6);
+			else if (data.wcType == "wc6") {
+				return buf.readUInt16LE(0x68);
+			}
+			else 
+				return buf.readUInt32LE(0x68).toString().slice(-6)
 		}
-		document.getElementById("gen7Id").innerHTML = data.gen7Id;
-	  data.tid = buf.readUInt16LE(0x68);
+		document.getElementById("idNo").innerHTML = data.idNo;
+
+	  if (data.wcType == "wc7") {
+		data.fullId = buf.readUInt32LE(0x68);
+		data.tid = buf.readUInt16LE(0x68)
+	  }
+		  
 	  data.sid = buf.readUInt16LE(0x6A);
 	  data.originGameId = buf.readUInt16LE(0x6C);
 	  data.encryptionConstant = ecSet();
@@ -3262,9 +3670,23 @@ exports.parseBuffer = (buf, options) => {
 	  data.pidId = buf.readUInt8(0xA3); 
 	  data.pidType = ['Set PID', 'Can be shiny', 'Always shiny', 'Never shiny'][buf.readUInt8(0xA3)]; 
 	    document.getElementById("pidType").innerHTML = data.pidType;
-	  data.eggLocation = locationName[buf.readUInt16LE(0xA4)];  
+	  data.eggLocation = eggLocation();
+		function eggLocation() {
+			if (data.wcType == "wc7") {
+				return locationName7[buf.readUInt16LE(0xA4)]; 
+			}
+			else
+				return locationName6[buf.readUInt16LE(0xA4)]
+		}
 	    document.getElementById("eggLocation").innerHTML = data.eggLocation;
-	  data.metLocation = locationName[buf.readUInt16LE(0xA6)]; 
+	  data.metLocation = metLocation(); 
+		function metLocation() {
+			if (data.wcType == "wc7") {
+				return locationName7[buf.readUInt16LE(0xA6)]; 
+			}
+			else
+				return locationName6[buf.readUInt16LE(0xA6)]
+		}
 	    document.getElementById("metLocation").innerHTML = data.metLocation;
 	  data.metLevel = buf.readUInt8(0xA8);
 	  data.contestStatCool = buf.readUInt8(0xA9);
@@ -3470,69 +3892,82 @@ exports.parseBuffer = (buf, options) => {
 	  document.getElementById("pokemonbox").style.display = "none";
 	  document.getElementById("itembox").style.display = "block";
 	  
-	  // data.gen6ItemQuantity = buf.readUInt16LE(0x70); TODO: wc6 support
 	  data.item1 = itemName[(buf.readUInt16LE(0x68))];
-	  data.item1Q = buf.readUInt16LE(0x6A);
-	  data.item2 = itemName[(buf.readUInt16LE(0x6C))];
-	  data.item2Q = buf.readUInt16LE(0x6E);
-	  data.item3 = itemName[(buf.readUInt16LE(0x70))];
-	  data.item3Q = buf.readUInt16LE(0x72);
-	  data.item4 = itemName[(buf.readUInt16LE(0x74))];
-	  data.item4Q = buf.readUInt16LE(0x76);
-	  data.item5 = itemName[(buf.readUInt16LE(0x78))];
-	  data.item5Q = buf.readUInt16LE(0x7A);
-	  data.item6 = itemName[(buf.readUInt16LE(0x7C))];
-	  data.item6Q = buf.readUInt16LE(0x7E);
 	  
-	  document.getElementById("item1").innerHTML = item1();
-		function item1() {
-			if (data.item1Q > 0) {
-				return (data.item1 + " x" + data.item1Q);
+	  if (data.wcType == "wc6") {
+		  data.itemQ = buf.readUInt16LE(0x70);
+		  document.getElementById("item1").innerHTML = item1();
+			function item1() {
+				if (data.itemQ > 0) {
+					return (data.item1 + " x" + data.itemQ);
+				}
+				else
+					return "";
 			}
-			else
-				return "";
-		}
-	  document.getElementById("item2").innerHTML = item2();
-		function item2() {
-			if (data.item2Q > 0) {
-				return (data.item2 + " x" + data.item2Q);
+	  }
+	  
+	  if (data.wcType == "wc7") {
+		  data.item1Q = buf.readUInt16LE(0x6A);
+		  data.item2 = itemName[(buf.readUInt16LE(0x6C))];
+		  data.item2Q = buf.readUInt16LE(0x6E);
+		  data.item3 = itemName[(buf.readUInt16LE(0x70))];
+		  data.item3Q = buf.readUInt16LE(0x72);
+		  data.item4 = itemName[(buf.readUInt16LE(0x74))];
+		  data.item4Q = buf.readUInt16LE(0x76);
+		  data.item5 = itemName[(buf.readUInt16LE(0x78))];
+		  data.item5Q = buf.readUInt16LE(0x7A);
+		  data.item6 = itemName[(buf.readUInt16LE(0x7C))];
+		  data.item6Q = buf.readUInt16LE(0x7E);
+		  
+		  document.getElementById("item1").innerHTML = item1();
+			function item1() {
+				if (data.item1Q > 0) {
+					return (data.item1 + " x" + data.item1Q);
+				}
+				else
+					return "";
 			}
-			else
-				return "";
-		}
-	  document.getElementById("item3").innerHTML = item3();
-		function item3() {
-			if (data.item3Q > 0) {
-				return (data.item3 + " x" + data.item3Q);
+		  document.getElementById("item2").innerHTML = item2();
+			function item2() {
+				if (data.item2Q > 0) {
+					return (data.item2 + " x" + data.item2Q);
+				}
+				else
+					return "";
 			}
-			else
-				return "";
-		}
-	  document.getElementById("item4").innerHTML = item4();
-		function item4() {
-			if (data.item4Q > 0) {
-				return (data.item4 + " x" + data.item4Q);
+		  document.getElementById("item3").innerHTML = item3();
+			function item3() {
+				if (data.item3Q > 0) {
+					return (data.item3 + " x" + data.item3Q);
+				}
+				else
+					return "";
 			}
-			else
-				return "";
-		}
-	  document.getElementById("item5").innerHTML = item5();
-		function item5() {
-			if (data.item5Q > 0) {
-				return (data.item5 + " x" + data.item5Q);
+		  document.getElementById("item4").innerHTML = item4();
+			function item4() {
+				if (data.item4Q > 0) {
+					return (data.item4 + " x" + data.item4Q);
+				}
+				else
+					return "";
 			}
-			else
-				return "";
-		}
-	  document.getElementById("item6").innerHTML = item6();
-		function item6() {
-			if (data.item6Q > 0) {
-				return (data.item6 + " x" + data.item6Q);
-			}	 
-			else
-				return "";
-		}	
-
+		  document.getElementById("item5").innerHTML = item5();
+			function item5() {
+				if (data.item5Q > 0) {
+					return (data.item5 + " x" + data.item5Q);
+				}
+				else
+					return "";
+			}
+		  document.getElementById("item6").innerHTML = item6();
+			function item6() {
+				if (data.item6Q > 0) {
+					return (data.item6 + " x" + data.item6Q);
+				}	 
+				else
+					return "";
+			}	
+	  }
   }  
   
 	document.getElementById("pkmnImg").src = "img/large/pokemon" + shinyCheck() + pokemonImg() + ".png";
@@ -3556,6 +3991,20 @@ exports.parseBuffer = (buf, options) => {
 			else 
 				return "/regular/";
 		} 
+		
+	if (data.wcType == "wc6") {
+		var gen7exclusive = document.getElementsByClassName("extragen7");
+		for (var i=0;i<gen7exclusive.length;i+=1){
+			gen7exclusive[i].style.display = 'none';
+		}
+	}
+	
+	if (data.wcType == "wc7") {
+		var gen7exclusive = document.getElementsByClassName("extragen7");
+		for (var i=0;i<gen7exclusive.length;i+=1){
+			gen7exclusive[i].style.display = 'block';
+		}
+	}
   
   return data;
   
