@@ -3639,10 +3639,28 @@ function parseWCData (buf, options) {
 				return ribbonName2[buf.readUInt8(0x75)];
 		}
 		document.getElementById("Ribbon").innerHTML = data.Ribbon;
+		document.getElementById("pkmnRibbon").className = "ribbon-" + ribbonAB() + ribbonType();
+			function ribbonAB() {
+				if (!buf.readUInt8(0x74) == 0) {
+					return "a"
+				}
+				else
+					return "b"
+			}
+			function ribbonType() {
+				if (ribbonAB() == "a") {
+					return buf.readUInt8(0x74);
+				}
+				else
+					return buf.readUInt8(0x75)
+			}
+		
 	  data.ball = ballName[buf.readUInt8(0x76)];  
 	    document.getElementById("ball").innerHTML = data.ball;
+		document.getElementById("pkmnBall").className = "spr-ball-" + buf.readUInt8(0x76);
 	  data.heldItem = itemName[buf.readUInt16LE(0x78)];
 	    document.getElementById("heldItem").innerHTML = data.heldItem;
+		document.getElementById("pkmnItem").className = "spr-item-" + buf.readUInt16LE(0x78);
 	  data.move1Name = moveName[buf.readUInt16LE(0x7A)];
 	    document.getElementById("move1Name").innerHTML = data.move1Name;
 	  data.move2Name = moveName[buf.readUInt16LE(0x7C)];  
@@ -3855,6 +3873,7 @@ function parseWCData (buf, options) {
 	  data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0xD1)]; 
 	  data.additionalItem = itemName[buf.readUInt16LE(0xD2)];
 	    document.getElementById("additionalItem").innerHTML = data.additionalItem;
+		document.getElementById("pkmnExtraItem").className = "spr-item-" + buf.readUInt16LE(0xD2);
 	  data.pid = pidSet();
 		function pidSet() {
 			if (buf.readUInt8(0xA3) == "0x00") {
@@ -4020,7 +4039,22 @@ function parseWCData (buf, options) {
 			else 
 				return "/regular/";
 		} 
-		
+	document.getElementById("pkmnSpecies").className = "pkmn-" + shinyCheckAgain() + data.dexNo + formCheck();
+		function shinyCheckAgain() {
+			if (data.pidId == 2) {
+				return "shiny-";
+			}
+			else 
+				return "";
+		} 
+		function formCheck() {
+			if (!data.formId == 0) {
+				return ("-" + data.formId);
+			}
+			else
+				return ""
+		}
+
 	if (data.wcType == "wc6") {
 		var gen7exclusive = document.getElementsByClassName("extragen7");
 		for (var i=0;i<gen7exclusive.length;i+=1){
