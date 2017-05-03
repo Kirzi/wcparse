@@ -3516,7 +3516,7 @@ ribbonName2 = {
 
 
 exports.parseWCBuffer = (buf, options) => {
-		//BOSS = 1446, wc6full = 784, wc6 = 264
+		// BOSS = 1446, wcfull = 784, wc = 264
 	if (buf.length==1446) {
 		return parseWCFullData(buf.slice(662), options);
 	} else if (buf.length==784) {
@@ -3570,7 +3570,15 @@ function parseWCData (buf, options) {
 	document.getElementById("giftRedeemable").innerHTML = data.giftRedeemable;
   data.giftStatus = ['Unused', 'Unused', 'Used', 'Used', 'Unused', '???', 'Used'][buf.readUInt8(0x52)];
   data.cardColorId = buf.readUInt8(0x53);  
-  data.cardColor = ['Blue', 'Purple', 'Yellow'][buf.readUInt8(0x53)];
+  data.cardColor = cardColor();
+	function cardColor() {
+		if (data.wcType == "wc7") {
+			return ['Blue', 'Purple', 'Yellow'][buf.readUInt8(0x53)];
+		}
+		else
+			return ['Blue', 'Green'][buf.readUInt8(0x53)]
+	}
+
 	document.querySelector("header").style.background = wcBackground();
 		function wcBackground() {
 			if (data.wcType == "wc7") {
@@ -3587,8 +3595,8 @@ function parseWCData (buf, options) {
 					return "#222"; // futureproofing
 			}
 			else if (data.wcType == "wc6") {
-					return "#0759A5"; 
-			}
+					return "#0759A5"; // blue
+			} // I'm making all wc6s display in the frontend as blue since the green only shows up during redemption
 		}
   
   if (data.cardType == 'Pokemon') {
@@ -3631,10 +3639,28 @@ function parseWCData (buf, options) {
 				return ribbonName2[buf.readUInt8(0x75)];
 		}
 		document.getElementById("Ribbon").innerHTML = data.Ribbon;
+		document.getElementById("pkmnRibbon").className = "ribbon-" + ribbonAB() + ribbonType();
+			function ribbonAB() {
+				if (!buf.readUInt8(0x74) == 0) {
+					return "a"
+				}
+				else
+					return "b"
+			}
+			function ribbonType() {
+				if (ribbonAB() == "a") {
+					return buf.readUInt8(0x74);
+				}
+				else
+					return buf.readUInt8(0x75)
+			}
+		
 	  data.ball = ballName[buf.readUInt8(0x76)];  
 	    document.getElementById("ball").innerHTML = data.ball;
+		document.getElementById("pkmnBall").className = "spr-ball-" + buf.readUInt8(0x76);
 	  data.heldItem = itemName[buf.readUInt16LE(0x78)];
 	    document.getElementById("heldItem").innerHTML = data.heldItem;
+		document.getElementById("pkmnItem").className = "spr-item-" + buf.readUInt16LE(0x78);
 	  data.move1Name = moveName[buf.readUInt16LE(0x7A)];
 	    document.getElementById("move1Name").innerHTML = data.move1Name;
 	  data.move2Name = moveName[buf.readUInt16LE(0x7C)];  
@@ -3847,6 +3873,7 @@ function parseWCData (buf, options) {
 	  data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0xD1)]; 
 	  data.additionalItem = itemName[buf.readUInt16LE(0xD2)];
 	    document.getElementById("additionalItem").innerHTML = data.additionalItem;
+		document.getElementById("pkmnExtraItem").className = "spr-item-" + buf.readUInt16LE(0xD2);
 	  data.pid = pidSet();
 		function pidSet() {
 			if (buf.readUInt8(0xA3) == "0x00") {
@@ -4012,7 +4039,22 @@ function parseWCData (buf, options) {
 			else 
 				return "/regular/";
 		} 
-		
+	document.getElementById("pkmnSpecies").className = "pkmn-" + shinyCheckAgain() + data.dexNo + formCheck();
+		function shinyCheckAgain() {
+			if (data.pidId == 2) {
+				return "shiny-";
+			}
+			else 
+				return "";
+		} 
+		function formCheck() {
+			if (!data.formId == 0) {
+				return ("-" + data.formId);
+			}
+			else
+				return ""
+		}
+
 	if (data.wcType == "wc6") {
 		var gen7exclusive = document.getElementsByClassName("extragen7");
 		for (var i=0;i<gen7exclusive.length;i+=1){
@@ -4039,7 +4081,6 @@ function parseWCFullData (buf, options) {
 	document.querySelector("header").style.height = "400px";
 	document.getElementById("wcfullbox").style.display = "block";
 
-	
 	data.description = stripNullChars(buf.toString('utf16le', 0x04, 0x200));
 		document.getElementById("wcfulltext").innerHTML = data.description.replace(/(\n)/gm,"</p><p>");
 	
