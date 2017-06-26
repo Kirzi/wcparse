@@ -94,6 +94,34 @@ header {
 	padding: 85px 100px 0 100px;
 }
 
+.bottom {
+	clear: both;
+	width: 100%;
+}
+
+/*
+.dropdown {
+	width: 0;
+}
+.outputstuff {
+	display: none;
+}
+.dropdown:hover .outputstuff {
+	display: block;
+}
+.btn {
+	margin: 0 auto;
+	text-align: center;
+	background-color: #222;
+	color: #fff;
+	border-radius: 2px;
+	width: 200px;
+	border: none;
+	padding: 8px;
+	cursor: pointer;
+}
+*/
+
 #itembox {
 	padding-top: 125px;
 	text-align: center;
