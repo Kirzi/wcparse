@@ -3683,6 +3683,7 @@ function parseWCData (buf, options) {
 		}
 		document.getElementById("formName").innerHTML = data.formName;
 	  data.language = ['Yours', 'JPN', 'ENG', 'FRE', 'ITA', 'GER', '???', 'SPA', 'KOR', 'CHS', 'CHT'][buf.readUInt8(0x85)]; 
+    document.getElementById("language").innerHTML = data.language;
 	  data.nickname = nicknameName();
 		function nicknameName() {
 			if (!buf.readUInt8(0x86) == "0x00") {
@@ -3715,8 +3716,8 @@ function parseWCData (buf, options) {
 	  data.abilityType = ['Fixed ability 1', 'Fixed ability 2', 'Fixed HA', 'Random (no HA)', 'Random (including HA)'][buf.readUInt8(0xA2)]; 
 	    document.getElementById("abilityType").innerHTML = data.abilityType;
 	  data.pidId = buf.readUInt8(0xA3); 
-	  data.pidType = ['Set PID', 'Can be shiny', 'Always shiny', 'Never shiny'][buf.readUInt8(0xA3)]; 
-	    document.getElementById("pidType").innerHTML = data.pidType;
+	  data.canBeShiny = ['(Set PID)', 'Can be shiny', 'Yes', 'Never'][buf.readUInt8(0xA3)]; 
+      document.getElementById("canBeShiny").innerHTML = data.canBeShiny;
 	  data.eggLocation = eggLocation();
 		function eggLocation() {
 			if (data.wcType == "wc7") {
@@ -3869,7 +3870,13 @@ function parseWCData (buf, options) {
 		}
 		document.getElementById("ot").innerHTML = data.ot;
 	  data.Level = buf.readUInt8(0xD0);
-	    document.getElementById("Level").innerHTML = data.Level;
+    function metLevelCheck() {
+      if (data.Level !== data.metLevel) {
+        return " (met at level " + data.metLevel + ")";
+      }
+      else return ""
+    }
+	    document.getElementById("Level").innerHTML = data.Level + metLevelCheck();
 	  data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0xD1)]; 
 	  data.additionalItem = itemName[buf.readUInt16LE(0xD2)];
 	    document.getElementById("additionalItem").innerHTML = data.additionalItem;
