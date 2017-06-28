@@ -1,5 +1,12 @@
 # wcparse
 
-Based off Porybox's [pkparse](https://github.com/porybox/pkparse): a wc6/wc7 parser. Also supports wc6full, wc7full, and decrypted Sun/Moon BOSS files. Works for item wondercards as well.
+Based off Porybox's [pkparse](https://github.com/porybox/pkparse): a wondercard file parser/viewer. 
 
-If you don't have the wc6/wc7 for the wondercard you want to view, you can usually find it [here at Project Pokemon's Event Gallery](https://github.com/projectpokemon/EventsGallery).
+Currently supports the following file types:
+
+- wc6/wc7
+- wc6full/wc7full
+- Decrypted Sun/Moon BOSS
+- pgf
+
+If you don't have the file for the wondercard you want to view, you should be able to find it [here at Project Pokemon's Event Gallery](https://github.com/projectpokemon/EventsGallery).
