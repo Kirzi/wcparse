@@ -1,12 +1,12 @@
 ﻿* {
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
 
 body {
+	margin: 0;
+	padding: 0;
 	font-family: sans-serif;
 	font-size: .9em;
 	line-height: 20px;
@@ -22,8 +22,26 @@ header {
 	z-index: 1;
 }
 
+h1 {
+	font-size: 1.3em;
+  margin-top: 0;
+}
+
+h2 {
+	font-size: 1.1em;
+}
+
+p {
+  margin: 10px 0;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
 #wrapper {
-	width: 1000px;
+	max-width: 1000px;
+  width: 90%;
 	margin: 0 auto;
 }
 
@@ -73,12 +91,18 @@ header {
 #wcfullbox {
 	top: 300px;
 	display: none;
-	padding: 20px 80px;
+	padding: 0;
+  text-align: center;
 }
 
 	#wcfullbox p {
-		line-height: 16px;
+		line-height: 10px;
 	}
+
+#wcfulltext {
+  display: inline-block;
+  text-align: left;
+}
 
 #pokemonbox,
 #itembox,
@@ -91,36 +115,8 @@ header {
 .right {
 	width: 50%;
 	float: left;
-	padding: 85px 100px 0 100px;
+	padding: 85px 10% 0 10%;
 }
-
-.bottom {
-	clear: both;
-	width: 100%;
-}
-
-/*
-.dropdown {
-	width: 0;
-}
-.outputstuff {
-	display: none;
-}
-.dropdown:hover .outputstuff {
-	display: block;
-}
-.btn {
-	margin: 0 auto;
-	text-align: center;
-	background-color: #222;
-	color: #fff;
-	border-radius: 2px;
-	width: 200px;
-	border: none;
-	padding: 8px;
-	cursor: pointer;
-}
-*/
 
 #itembox {
 	padding-top: 125px;
@@ -132,23 +128,6 @@ header {
 
 #anotherbox {
 	text-align: center;
-}
-	
-h1 {
-	font-size: 1.3em;
-}
-
-h2 {
-	font-size: 1.1em;
-}
-
-h1, h2, h3 {
-	margin-bottom: 10px;
-}
-
-p:not(:last-child) {
-	line-height: 20px;
-	margin-bottom: 10px;
 }
 
 .title {
