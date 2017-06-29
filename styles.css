@@ -90,7 +90,6 @@ pre {
 
 #wcfullbox {
 	top: 300px;
-	display: none;
 	padding: 0;
   text-align: center;
 }
@@ -102,13 +101,6 @@ pre {
 #wcfulltext {
   display: inline-block;
   text-align: left;
-}
-
-#pokemonbox,
-#itembox,
-#anotherbox,
-#outputbox {
-	display: none;
 }
 
 .left,
@@ -138,6 +130,12 @@ pre {
 	font-weight: 700;
 }
 
-.extragen7 {
-  display: none;
+#wcfullbox,
+#pokemonbox,
+#itembox,
+#anotherbox,
+#outputbox,
+.extragen7,
+.relearn {
+	display: none;
 }

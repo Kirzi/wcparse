@@ -3788,6 +3788,26 @@ ribbonName67B = {
 
 
 exports.parseWCBuffer = (buf, options) => {
+  
+  // bumps to top
+  document.querySelector("header").style.height = "200px";
+  document.getElementById("wondercardbox").style.top = "100px";
+  
+  // hidden by default - need to reset after switching between WC types
+  document.getElementById("wcfullbox").style.display = "none";
+  document.getElementById("pokemonbox").style.display = "none";
+  document.getElementById("itembox").style.display = "none";
+  document.getElementById("anotherbox").style.display = "none";
+  document.getElementById("outputbox").style.display = "none";
+  var gen7exclusive = document.getElementsByClassName("extragen7");
+	for (var i=0;i<gen7exclusive.length;i+=1){
+    gen7exclusive[i].style.display = 'none';
+	}
+  var wcexclusive = document.getElementsByClassName("relearn");
+	for (var i=0;i<wcexclusive.length;i+=1){
+    wcexclusive[i].style.display = 'none';
+	}
+  
 	if (buf.length==1446) { // BOSS
 		return parseWCFullData(buf.slice(662), options);
 	} else if (buf.length==784) { // wcfull
@@ -3801,6 +3821,7 @@ exports.parseWCBuffer = (buf, options) => {
 	} else {
 		throw new TypeError('Try actually uploading a wondercard this time.');
 	}
+ 
 }
 
 function parseWCData (buf, options) {
@@ -3810,8 +3831,10 @@ function parseWCData (buf, options) {
   document.getElementById("wondercardbox").style.display = "block";
   document.getElementById("anotherbox").style.display = "block";
   document.getElementById("outputbox").style.display = "block";
-  document.querySelector("header").style.height = "200px";
-  document.getElementById("wondercardbox").style.top = "100px";
+  var wcexclusive = document.getElementsByClassName("relearn");
+	for (var i=0;i<wcexclusive.length;i+=1){
+    wcexclusive[i].style.display = 'inline-block';
+	}
 
   data.wcType = wcType();
 	function wcType() {
@@ -4193,34 +4216,34 @@ function parseWCData (buf, options) {
 					return (data.evHp + "/" + data.evAtk  + "/" + data.evDef  + "/" + data.evSpAtk + "/" + data.evSpDef + "/" + data.evSpe)
 			}
 	  
-	document.getElementById("relearn1").innerHTML = checkRelearnable1();
-		function checkRelearnable1() {
-			if (((data.move1Name == data.eggMove1Name) || (data.move1Name == data.eggMove2Name) || (data.move1Name == data.eggMove3Name) || (data.move1Name == data.eggMove4Name)) && (data.move1Name != "")) {
-				return "(relearnable)";
-			}
-			else return "";
-		}
-	document.getElementById("relearn2").innerHTML = checkRelearnable2();
-		function checkRelearnable2() {
-			if (((data.move2Name == data.eggMove1Name) || (data.move2Name == data.eggMove2Name) || (data.move2Name == data.eggMove3Name) || (data.move2Name == data.eggMove4Name)) && (data.move2Name != "")) {
-				return "(relearnable)";
-			}
-			else return "";
-		}
-	document.getElementById("relearn3").innerHTML = checkRelearnable3();
-		function checkRelearnable3() {
-			if (((data.move3Name == data.eggMove1Name) || (data.move3Name == data.eggMove2Name) || (data.move3Name == data.eggMove3Name) || (data.move3Name == data.eggMove4Name)) && (data.move3Name != "")) {
-				return "(relearnable)";
-			}
-			else return "";
-		}
-	document.getElementById("relearn4").innerHTML = checkRelearnable4();
-		function checkRelearnable4() {
-			if (((data.move4Name == data.eggMove1Name) || (data.move4Name == data.eggMove2Name) || (data.move4Name == data.eggMove3Name) || (data.move4Name == data.eggMove4Name)) && (data.move4Name != "")) {
-				return "(relearnable)";
-			}
-			else return "";
-		}
+      document.getElementById("relearn1").innerHTML = checkRelearnable1();
+        function checkRelearnable1() {
+          if (((data.move1Name == data.eggMove1Name) || (data.move1Name == data.eggMove2Name) || (data.move1Name == data.eggMove3Name) || (data.move1Name == data.eggMove4Name)) && (data.move1Name != "")) {
+            return "(relearnable)";
+          }
+          else return "";
+        }
+      document.getElementById("relearn2").innerHTML = checkRelearnable2();
+        function checkRelearnable2() {
+          if (((data.move2Name == data.eggMove1Name) || (data.move2Name == data.eggMove2Name) || (data.move2Name == data.eggMove3Name) || (data.move2Name == data.eggMove4Name)) && (data.move2Name != "")) {
+            return "(relearnable)";
+          }
+          else return "";
+        }
+      document.getElementById("relearn3").innerHTML = checkRelearnable3();
+        function checkRelearnable3() {
+          if (((data.move3Name == data.eggMove1Name) || (data.move3Name == data.eggMove2Name) || (data.move3Name == data.eggMove3Name) || (data.move3Name == data.eggMove4Name)) && (data.move3Name != "")) {
+            return "(relearnable)";
+          }
+          else return "";
+        }
+      document.getElementById("relearn4").innerHTML = checkRelearnable4();
+        function checkRelearnable4() {
+          if (((data.move4Name == data.eggMove1Name) || (data.move4Name == data.eggMove2Name) || (data.move4Name == data.eggMove3Name) || (data.move4Name == data.eggMove4Name)) && (data.move4Name != "")) {
+            return "(relearnable)";
+          }
+          else return "";
+        }
 	
   }
   
@@ -4357,8 +4380,6 @@ function parseWCData (buf, options) {
 			gen7exclusive[i].style.display = 'block';
 		}
 	}
-	
-	document.getElementById("wcfullbox").style.display = "none";
   
   return data;
   
@@ -4384,8 +4405,6 @@ function parsePGFData (buf, options) {
   document.getElementById("wondercardbox").style.display = "block";
   document.getElementById("anotherbox").style.display = "block";
   document.getElementById("outputbox").style.display = "block";
-  document.querySelector("header").style.height = "200px";
-  document.getElementById("wondercardbox").style.top = "100px";
   
   if (buf.readUInt8(0xB3) == 1) { // if Pokemon
   	data.idNo = idNo();
@@ -4635,27 +4654,30 @@ function parsePGFData (buf, options) {
       document.getElementById("Level").innerHTML = data.Level + metLevelCheck();
     data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0x5C)]; 
 
-  document.getElementById("pkmnSpecies").className = "pkmn-" + shinyCheckAgain() + data.dexNo;
-    function shinyCheckAgain() {
-      if (data.shiny == "Yes") {
-        return "shiny-";
-      }
-      else 
-        return "";
-    } 
-  
-  document.getElementById("wcfullbox").style.display = "none";
-  document.getElementById("pokemonbox").style.display = "block";
-  document.getElementById("itembox").style.display = "none";
+    document.getElementById("pkmnSpecies").className = "pkmn-" + shinyCheckAgain() + data.dexNo;
+      function shinyCheckAgain() {
+        if (data.shiny == "Yes") {
+          return "shiny-";
+        }
+        else 
+          return "";
+      } 
+
+    document.getElementById("pokemonbox").style.display = "block";
+    document.getElementById("itembox").style.display = "none";
 
   }
 
   if (buf.readUInt8(0xB3) == 2) { // if Item
+  
 	  data.item1 = itemName[(buf.readUInt16LE(0x00))];
       document.getElementById("item1").innerHTML = data.item1;
+      
     document.getElementById("pokemonbox").style.display = "none";
     document.getElementById("itembox").style.display = "block";
+    
   }
+  
   if (buf.readUInt8(0xB3) == 3) { // if Power
 	  data.powerType = buf.readUInt16LE(0x00);
   } 
@@ -4708,17 +4730,6 @@ function parsePGFData (buf, options) {
         return "/regular/";
     }   
   
-  // needed to make sure gen 5 wondercards aren't left with leftover stuff if a gen 6-7 WC is uploaded first
-  document.getElementById("wcfullbox").style.display = "none";
-  document.getElementById("relearn1").style.display = "none"; 
-  document.getElementById("relearn2").style.display = "none";
-  document.getElementById("relearn3").style.display = "none";
-  document.getElementById("relearn4").style.display = "none";
-  var gen7exclusive = document.getElementsByClassName("extragen7");
-	for (var i=0;i<gen7exclusive.length;i+=1){
-    gen7exclusive[i].style.display = 'none';
-	}
-  
   return data;
 }
 
@@ -4726,8 +4737,8 @@ function parsePCDPGTData (buf, options) {
 
   const data = {}; 
   
+  document.getElementById("anotherbox").style.display = "block";
   document.getElementById("outputbox").style.display = "block";
-  document.querySelector("header").style.height = "200px";
 
   data.wcType = document.getElementById('input').value.slice(-3);
   data.cardType = [null, 'Pokemon', 'Egg', 'Item', 'Rule', 'Seal', 'Accessory', 'Manaphy Egg', 'Member Card', 'Oak\'s Letter', 'Azure Flute', 'Poketch', 'Secret Key', '13', 'Pokewalker', '15'][buf.readUInt16LE(0x00)];  
@@ -4746,21 +4757,9 @@ function parsePCDPGTData (buf, options) {
       }
   }
   
-  // unfinished/extra stuff
+  // temporary
   document.querySelector("header").style.backgroundColor = "#222";
   document.getElementById("wondercardbox").style.display = "none";
-  document.getElementById("anotherbox").style.display = "block";
-  document.getElementById("pokemonbox").style.display = "none";
-  document.getElementById("itembox").style.display = "none";
-  document.getElementById("wcfullbox").style.display = "none";
-  document.getElementById("relearn1").style.display = "none"; 
-  document.getElementById("relearn2").style.display = "none";
-  document.getElementById("relearn3").style.display = "none";
-  document.getElementById("relearn4").style.display = "none";
-  var gen7exclusive = document.getElementsByClassName("extragen7");
-	for (var i=0;i<gen7exclusive.length;i+=1){
-    gen7exclusive[i].style.display = 'none';
-	}
 
   return data;
 
