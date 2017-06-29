@@ -3788,15 +3788,16 @@ ribbonName67B = {
 
 
 exports.parseWCBuffer = (buf, options) => {
-		// BOSS = 1446, wcfull = 784, wc = 264
-	if (buf.length==1446) {
+	if (buf.length==1446) { // BOSS
 		return parseWCFullData(buf.slice(662), options);
-	} else if (buf.length==784) {
+	} else if (buf.length==784) { // wcfull
 		return parseWCFullData(buf, options);
-	} else if (buf.length==264) {
+	} else if (buf.length==264) { // wc
 		return parseWCData(buf, options);
-	} else if (buf.length==204) {
+	} else if (buf.length==204) { // pgf
 		return parsePGFData(buf, options);
+	} else if ((buf.length==856) || (buf.length==260)) { // pcd:856 pgt:260
+		return parsePCDPGTData(buf, options);
 	} else {
 		throw new TypeError('Try actually uploading a wondercard this time.');
 	}
@@ -3806,6 +3807,7 @@ function parseWCData (buf, options) {
 
   const data = {}; 
 
+  document.getElementById("wondercardbox").style.display = "block";
   document.getElementById("anotherbox").style.display = "block";
   document.getElementById("outputbox").style.display = "block";
   document.querySelector("header").style.height = "200px";
@@ -4379,6 +4381,7 @@ function parsePGFData (buf, options) {
 
   const data = {}; 
   
+  document.getElementById("wondercardbox").style.display = "block";
   document.getElementById("anotherbox").style.display = "block";
   document.getElementById("outputbox").style.display = "block";
   document.querySelector("header").style.height = "200px";
@@ -4718,6 +4721,50 @@ function parsePGFData (buf, options) {
   
   return data;
 }
+
+function parsePCDPGTData (buf, options) {
+
+  const data = {}; 
+  
+  document.getElementById("outputbox").style.display = "block";
+  document.querySelector("header").style.height = "200px";
+
+  data.wcType = document.getElementById('input').value.slice(-3);
+  data.cardType = [null, 'Pokemon', 'Egg', 'Item', 'Rule', 'Seal', 'Accessory', 'Manaphy Egg', 'Member Card', 'Oak\'s Letter', 'Azure Flute', 'Poketch', 'Secret Key', '13', 'Pokewalker', '15'][buf.readUInt16LE(0x00)];  
+  
+  if (data.wcType == "pgt") { // the only difference between PCDs and PGTs (aside from the extra bytes at the end)
+    data.cardSlot = buf.readUInt8(0x02);
+  }
+  
+  if (data.wcType == "pcd") {
+  
+    data.dateReceived = calcDate();
+      function calcDate() {
+        var days = buf.readUInt32LE(0x354);
+        var fullDate = moment().year(2000).month(1).date(1).add(days, 'days').format('YYYY-MM-YY');
+        return fullDate;
+      }
+  }
+  
+  // unfinished/extra stuff
+  document.querySelector("header").style.backgroundColor = "#222";
+  document.getElementById("wondercardbox").style.display = "none";
+  document.getElementById("anotherbox").style.display = "block";
+  document.getElementById("pokemonbox").style.display = "none";
+  document.getElementById("itembox").style.display = "none";
+  document.getElementById("wcfullbox").style.display = "none";
+  document.getElementById("relearn1").style.display = "none"; 
+  document.getElementById("relearn2").style.display = "none";
+  document.getElementById("relearn3").style.display = "none";
+  document.getElementById("relearn4").style.display = "none";
+  var gen7exclusive = document.getElementsByClassName("extragen7");
+	for (var i=0;i<gen7exclusive.length;i+=1){
+    gen7exclusive[i].style.display = 'none';
+	}
+
+  return data;
+
+}; 
 
 const levelToExperienceCache = {
   'slow-then-very-fast': {},
