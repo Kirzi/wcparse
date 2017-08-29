@@ -265,6 +265,9 @@ function parsePGFData (buf, options) {
 
     document.getElementById("pokemonbox").style.display = "block";
     document.getElementById("itembox").style.display = "none";
+    document.getElementById("filename").style.display = "none";
+    document.getElementById("filecheckbox").style.display = "none";
+    document.getElementById('filetoggle').checked = false;
 
   }
 

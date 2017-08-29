@@ -9,19 +9,35 @@ function parseWCData (buf, options) {
   document.getElementById("wondercardbox").style.display = "block";
   document.getElementById("anotherbox").style.display = "block";
   document.getElementById("outputbox").style.display = "block";
+
+  document.getElementById("filecheckbox").style.display = "block";
   var wcexclusive = document.getElementsByClassName("relearn");
   for (var i=0;i<wcexclusive.length;i+=1){
     wcexclusive[i].style.display = 'inline-block';
   }
 
+  data.fileName = document.getElementById('input').value.replace("C:\\fakepath\\", "");
+    document.getElementById("filename").innerHTML = data.fileName;
+    if (!document.getElementById('filetoggle').checked) {
+      document.getElementById("filename").style.display = "none";
+    } 
+    document.getElementById('filetoggle').onchange = function thing() {
+      if (!document.getElementById('filetoggle').checked) {
+        document.getElementById("filename").style.display = "none";
+      } 
+      else {
+        document.getElementById("filename").style.display = "block";
+      }
+    };
+  
   data.wcType = wcType();
-  function wcType() {
-    if ((document.getElementById('input').value.slice(-4) == ".wc6") || (document.getElementById('input').value.slice(-8) == ".wc6full")) {
-      return "wc6";
-    }
-    else
-      return "wc7"; 
-  } // I'm just assuming nobody has BOSS files for wc6s anymore
+    function wcType() {
+      if ((document.getElementById('input').value.slice(-4) == ".wc6") || (document.getElementById('input').value.slice(-8) == ".wc6full")) {
+        return "wc6";
+      }
+      else
+        return "wc7"; 
+    } // I'm just assuming nobody has BOSS files for wc6s anymore
   
   data.wcId = buf.readUInt16LE(0x00);  
   data.wcTitle = stripNullChars(buf.toString('utf16le', 0x02, 0x4B));
@@ -74,6 +90,13 @@ function parseWCData (buf, options) {
       else if (data.wcType == "wc6") {
           return "#0759A5"; // blue
       } // I'm making all wc6s display in the frontend as blue since the green only shows up during redemption
+    }
+    
+    if (data.cardColorId == 2) {
+      document.getElementById("filename").style.color = "#000";
+    }
+    else {
+      document.getElementById("filename").style.color = "#fff";
     }
   
   if (data.cardType == 'Pokemon') {

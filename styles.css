@@ -139,3 +139,18 @@ pre {
 .relearn {
 	display: none;
 }
+
+#filename {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 5;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+#filetoggle {
+  position: relative;
+  vertical-align: middle;
+  bottom: 1px;
+}
