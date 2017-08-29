@@ -25,6 +25,9 @@ function parsePCDPGTData (buf, options) {
   // temporary
   document.querySelector("header").style.backgroundColor = "#222";
   document.getElementById("wondercardbox").style.display = "none";
+  document.getElementById("filename").style.display = "none";
+  document.getElementById("filecheckbox").style.display = "none";
+  document.getElementById('filetoggle').checked = false;
 
   return data;
 
