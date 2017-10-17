@@ -2,6 +2,20 @@ function stripNullChars (str) {
   return str.replace(/\0.*|\u0000|￿/g, '');
 }
 
+function pad(input, number) {
+  var nines = "";
+  var zeros = "";
+  var i;
+  for (i = 0; i < number; i++) {
+    nines += "9";
+    zeros += "0";
+  }
+  if (input <= nines) {
+    input = (zeros + input).slice(-number); 
+  }
+  return input;
+}
+
 function parseWCData (buf, options) {
 
   const data = {}; 
@@ -11,10 +25,11 @@ function parseWCData (buf, options) {
   document.getElementById("outputbox").style.display = "block";
 
   document.getElementById("filecheckbox").style.display = "block";
+  
   var wcexclusive = document.getElementsByClassName("relearn");
-  for (var i=0;i<wcexclusive.length;i+=1){
-    wcexclusive[i].style.display = 'inline-block';
-  }
+    for (var i=0;i<wcexclusive.length;i+=1){
+      wcexclusive[i].style.display = 'inline-block';
+    }
 
   data.fileName = document.getElementById('input').value.replace("C:\\fakepath\\", "");
     document.getElementById("filename").innerHTML = data.fileName;
@@ -60,7 +75,19 @@ function parseWCData (buf, options) {
     }
   }
   data.giftRedeemable = ['Infinite', 'Only once', 'Infinite', 'Only once', 'Once per day', '???', 'Once per day'][buf.readUInt8(0x52)];
-  document.getElementById("giftRedeemable").innerHTML = data.giftRedeemable;
+    document.getElementById("giftRedeemable").innerHTML = data.giftRedeemable;
+    if (data.giftRedeemable === 'Infinite') {
+      document.getElementById("giftRedeemable").style.color = "#009688";
+      document.getElementById("giftRedeemable").style.fontWeight = "bold";
+    }
+    else if (data.giftRedeemable === 'Once per day') {
+      document.getElementById("giftRedeemable").style.color = "#673AB7";
+      document.getElementById("giftRedeemable").style.fontWeight = "bold";
+    }
+    else {
+      document.getElementById("giftRedeemable").style.color = "#000";
+      document.getElementById("giftRedeemable").style.fontWeight = "normal";
+    }
   data.giftStatus = ['Unused', 'Unused', 'Used', 'Used', 'Unused', '???', 'Used'][buf.readUInt8(0x52)];
   data.cardColorId = buf.readUInt8(0x53);  
   data.cardColor = cardColor();
@@ -110,10 +137,10 @@ function parseWCData (buf, options) {
         return "Yours";
       }
       else if (data.wcType == "wc6") {
-        return buf.readUInt16LE(0x68);
+        return pad(buf.readUInt16LE(0x68),5);
       }
       else 
-        return buf.readUInt32LE(0x68).toString().slice(-6)
+        return pad(buf.readUInt32LE(0x68).toString().slice(-6),6)
     }
     document.getElementById("idNo").innerHTML = data.idNo;
 
@@ -131,17 +158,18 @@ function parseWCData (buf, options) {
       }
     }  
     data.Ribbon = ribbonInfo();
-    function ribbonInfo() {
-      if ((buf.readUInt8(0x74) == 0) && (buf.readUInt8(0x75) == 0)) {
-        return "None";
+      document.getElementById("Ribbon").innerHTML = data.Ribbon;
+      function ribbonInfo() {
+        if ((buf.readUInt8(0x74) == 0) && (buf.readUInt8(0x75) == 0)) {
+          return "None";
+        }
+        else if (!buf.readUInt8(0x74) == 0) {
+          return ribbonName67A[buf.readUInt8(0x74)];
+        }
+        else
+          return ribbonName67B[buf.readUInt8(0x75)];
       }
-      else if (!buf.readUInt8(0x74) == 0) {
-        return ribbonName67A[buf.readUInt8(0x74)];
-      }
-      else
-        return ribbonName67B[buf.readUInt8(0x75)];
-    }
-    document.getElementById("Ribbon").innerHTML = data.Ribbon;
+      document.getElementById("Ribbon").innerHTML = data.Ribbon;   
     document.getElementById("pkmnRibbon").className = "ribbon67-" + ribbonAB() + ribbonType();
       function ribbonAB() {
         if (!buf.readUInt8(0x74) == 0) {
@@ -180,14 +208,14 @@ function parseWCData (buf, options) {
       document.getElementById("pokemonName").innerHTML = data.pokemonName;
     data.formId = buf.readUInt8(0x84);
     data.formName = hasForm();
-    function hasForm() {
-      if (!buf.readUInt8(0x84) == 0) {
-        return formes[buf.readUInt16LE(0x82)][buf.readUInt8(0x84)];
+      function hasForm() {
+        if (!buf.readUInt8(0x84) == 0) {
+          return formes[buf.readUInt16LE(0x82)][buf.readUInt8(0x84)];
+        }
+        else 
+          return "None";
       }
-      else 
-        return "None";
-    }
-    document.getElementById("formName").innerHTML = data.formName;
+      document.getElementById("formName").innerHTML = data.formName;
     data.language = ['Yours', 'JPN', 'ENG', 'FRE', 'ITA', 'GER', '???', 'SPA', 'KOR', 'CHS', 'CHT'][buf.readUInt8(0x85)]; 
     document.getElementById("language").innerHTML = data.language;
     data.nickname = nicknameName();
@@ -219,11 +247,30 @@ function parseWCData (buf, options) {
     document.getElementById("natureLock").innerHTML = data.natureLock;
     data.gender = ['♂', '♀', 'Genderless', 'Random'][buf.readUInt8(0xA1)]; 
       document.getElementById("gender").innerHTML = data.gender;
+      function genderColor() {
+        if (data.gender == "♂") {
+          return "blue";
+        }
+        if (data.gender == "♀") {
+          return "red";
+        }
+        else
+          return "#000";
+      }    
+      document.getElementById("gender").style.color = genderColor();
     data.abilityType = ['Fixed ability 1', 'Fixed ability 2', 'Fixed HA', 'Random (no HA)', 'Random (including HA)'][buf.readUInt8(0xA2)]; 
       document.getElementById("abilityType").innerHTML = data.abilityType;
     data.pidId = buf.readUInt8(0xA3); 
     data.canBeShiny = ['(Set PID)', 'Can be shiny', 'Yes', 'Never'][buf.readUInt8(0xA3)]; 
       document.getElementById("canBeShiny").innerHTML = data.canBeShiny;
+      if (data.canBeShiny === 'Can be shiny') {
+        document.getElementById("canBeShiny").style.color = "#D0AF00";
+        document.getElementById("canBeShiny").style.fontWeight = "bold";
+      }
+      else {
+        document.getElementById("canBeShiny").style.color = "#000";
+        document.getElementById("canBeShiny").style.fontWeight = "normal";
+      }
     data.eggLocation = eggLocation();
     function eggLocation() {
       if (data.wcType == "wc7") {
@@ -367,21 +414,32 @@ function parseWCData (buf, options) {
         }
     
     data.otGender = ['♂', '♀', '???', 'Yours'][buf.readUInt8(0xB5)];
+      function otgColor() {
+        if (data.otGender == "♂") {
+          return "blue";
+        }
+        if (data.otGender == "♀") {
+          return "red";
+        }
+        else
+          return "#000";
+      }      
     data.ot = otName();
-    function otName() {
-      if ((buf.readUInt8(0xB6)) == 0) {
-        return "Yours";
+      function otName() {
+        if ((buf.readUInt8(0xB6)) == 0) {
+          return "Yours";
+        }
+        else return stripNullChars(buf.toString('utf16le', 0xB6, 0xCF))
       }
-      else return stripNullChars(buf.toString('utf16le', 0xB6, 0xCF))
-    }
     document.getElementById("ot").innerHTML = data.ot;
+    document.getElementById("ot").style.color = otgColor();
     data.Level = buf.readUInt8(0xD0);
-    function metLevelCheck() {
-      if (data.Level !== data.metLevel) {
-        return " (met at level " + data.metLevel + ")";
+      function metLevelCheck() {
+        if (data.Level !== data.metLevel) {
+          return " (met at level " + data.metLevel + ")";
+        }
+        else return ""
       }
-      else return ""
-    }
       document.getElementById("Level").innerHTML = data.Level + metLevelCheck();
     data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0xD1)]; 
     data.additionalItem = itemName[buf.readUInt16LE(0xD2)];
@@ -587,14 +645,51 @@ function parseWCData (buf, options) {
 }; 
 
 function parseWCFullData (buf, options) {
+  
   const data = parseWCData(buf.slice(520), options);
   
-  document.querySelector("header").style.height = "400px";
+  document.querySelector("header").style.height = "350px";
+  document.getElementById("wondercardbox").style.top = "50px";
   document.getElementById("wcfullbox").style.display = "block";
-
-  data.description = buf.toString('utf16le',0x04,0x200);
-    data.description = stripNullChars(buf.toString('utf16le', 0x04, 0x200));
-    document.getElementById("wcfulltext").innerHTML = data.description.replace(/(\n)/gm,"</p><p>");
+  var wcfullexclusive = document.getElementsByClassName("extrawcfull");
+    for (var i=0;i<wcfullexclusive.length;i+=1){
+      wcfullexclusive[i].style.display = 'block';
+    }
+  
+  data.gamesAvailable = gamesAvailable();
+    function gamesAvailable() {
+      const games6 = ["Y", "X", "AS", "OR"];
+      const games7 = ["Sun", "Moon", "US", "UM"];
+      var gamesBinaryArray = pad(buf.readUInt32LE(0x00).toString(2),4).split('').map(Number).reverse();
+      var gamesRedeemable = "";
+      for (i = 0; i < 4; i++) {
+        if (gamesBinaryArray[i] == 1) {
+          if (data.wcType == "wc7") {
+            gamesRedeemable += games7[i] + "/";
+          }
+          if (data.wcType == "wc6") {
+            gamesRedeemable += games6[i] + "/";
+          }
+        }
+      }
+      return gamesRedeemable.slice(0,-1).replace("Y/X","X/Y").replace("AS/OR","OR/AS");
+    }
+    document.getElementById("games").innerHTML = data.gamesAvailable;
+    
+  data.redemptionText = buf.toString('utf16le',0x04,0x200);
+    data.redemptionText = stripNullChars(buf.toString('utf16le', 0x04, 0x200));
+    document.getElementById("wcfulltext").innerHTML = "<p>" + data.redemptionText.replace(/(\n)/gm,"</p><p>") + "</p>";
+    
+  data.receivingEffect = buf.readUInt8(0x1FE);
+  data.allowedLanguages = buf.readUInt8(0x1FF);
+  
+  if (data.wcType == "wc7") {
+    data.oncePerDay = buf.readUInt8(0x200);
+    data.wcSubID = buf.readUInt8(0x201);
+    data.setCount = buf.readUInt8(0x204);
+    data.rarityWeight = buf.readUInt8(0x205);
+  }
   
   return data;
+  
 }
