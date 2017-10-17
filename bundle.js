@@ -19,13 +19,17 @@ exports.parseWCBuffer = (buf, options) => {
   document.getElementById("anotherbox").style.display = "none";
   document.getElementById("outputbox").style.display = "none";
   var gen7exclusive = document.getElementsByClassName("extragen7");
-	for (var i=0;i<gen7exclusive.length;i+=1){
-    gen7exclusive[i].style.display = 'none';
-	}
+    for (var i=0;i<gen7exclusive.length;i+=1){
+      gen7exclusive[i].style.display = 'none';
+    }
+  var wcfullexclusive = document.getElementsByClassName("extrawcfull");
+    for (var i=0;i<wcfullexclusive.length;i+=1){
+      wcfullexclusive[i].style.display = 'none';
+    }
   var wcexclusive = document.getElementsByClassName("relearn");
-	for (var i=0;i<wcexclusive.length;i+=1){
-    wcexclusive[i].style.display = 'none';
-	}
+    for (var i=0;i<wcexclusive.length;i+=1){
+      wcexclusive[i].style.display = 'none';
+    }
   
 	if (buf.length==1446) { // BOSS
 		return parseWCFullData(buf.slice(662), options);

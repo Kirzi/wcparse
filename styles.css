@@ -89,7 +89,7 @@ pre {
 }
 
 #wcfullbox {
-	top: 300px;
+	top: 250px;
 	padding: 0;
   text-align: center;
 }
@@ -136,6 +136,7 @@ pre {
 #anotherbox,
 #outputbox,
 .extragen7,
+.extrawcfull,
 .relearn {
 	display: none;
 }

@@ -14,7 +14,7 @@ function parsePGFData (buf, options) {
           return "Yours";
         }
         else 
-          return buf.readUInt16LE(0x00);
+          return pad(buf.readUInt16LE(0x00),5);
       }
     data.sid = buf.readUInt16LE(0x02);
     data.originGameId = buf.readUInt8(0x04); // ??? "hometown" 
@@ -106,10 +106,29 @@ function parsePGFData (buf, options) {
       }
     data.gender = ['♂', '♀', 'Random/Genderless'][buf.readUInt8(0x35)]; 
       document.getElementById("gender").innerHTML = data.gender;
+      function genderColor() {
+        if (data.gender == "♂") {
+          return "blue";
+        }
+        if (data.gender == "♀") {
+          return "red";
+        }
+        else
+          return "#000";
+      }    
+      document.getElementById("gender").style.color = genderColor();
     data.abilityType = ['Fixed ability 1', 'Fixed ability 2', 'Fixed HA', 'Random (no HA)', 'Random (including HA)'][buf.readUInt8(0x36)]; 
       document.getElementById("abilityType").innerHTML = data.abilityType; 
     data.shiny = ['Never', 'Can be shiny', 'Yes'][buf.readUInt8(0x37)]; 
       document.getElementById("canBeShiny").innerHTML = data.shiny;
+      if (data.canBeShiny === 'Can be shiny') {
+        document.getElementById("canBeShiny").style.color = "#D0AF00";
+        document.getElementById("canBeShiny").style.fontWeight = "bold";
+      }
+      else {
+        document.getElementById("canBeShiny").style.color = "#000";
+        document.getElementById("canBeShiny").style.fontWeight = "normal";
+      }
     data.eggLocation = locationName5[buf.readUInt16LE(0x38)];
       document.getElementById("eggLocation").innerHTML = data.eggLocation;
     data.metLocation = locationName5[buf.readUInt16LE(0x3A)]; 
@@ -237,6 +256,16 @@ function parsePGFData (buf, options) {
       }
       document.getElementById("ot").innerHTML = data.ot;
     data.otGender = ['♂', '♀', '???', 'Yours'][buf.readUInt8(0x5A)];
+      function otgColor() {
+        if (data.otGender == "♂") {
+          return "blue";
+        }
+        if (data.otGender == "♀") {
+          return "red";
+        }
+        else
+          return "#000";
+      }   
     data.Level = level();
       function level() {
         if (buf.readUInt8(0x5B) == 0) {
@@ -312,6 +341,14 @@ function parsePGFData (buf, options) {
       }
   data.giftRedeemable = ['Infinite', 'Only once', 'Infinite', 'Only once'][buf.readUInt8(0xB4)];
     document.getElementById("giftRedeemable").innerHTML = data.giftRedeemable;
+    if (data.giftRedeemable === 'Infinite') {
+      document.getElementById("giftRedeemable").style.color = "#009688";
+      document.getElementById("giftRedeemable").style.fontWeight = "bold";
+    }
+    else {
+      document.getElementById("giftRedeemable").style.color = "#000";
+      document.getElementById("giftRedeemable").style.fontWeight = "normal";
+    }
   data.giftStatus = ['Unused', 'Unused', 'Used', 'Used'][buf.readUInt8(0xB4)]; 
   
   document.getElementById("pkmnImg").src = "img/large/pokemon" + shinyCheck() + pokemonImg() + ".png";
