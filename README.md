@@ -2,14 +2,15 @@
 
 Parses and displays information from wondercard files.
 
-![Screenshot](https://i.imgur.com/DCRWImk.png)
+![Screenshot](/img/screenshot.png?raw=true "Screenshot")
 
 Currently supports the following file types:
 
 - wc6/wc7
 - wc6full/wc7full
-- Decrypted Sun/Moon BOSS
+- Decrypted Gen 7 BOSS
 - pgf
+- pcd/pgt (the non-encrypted parts)
 
 If you don't have the file for the wondercard you want to view, you should be able to find it [here at Project Pokemon's Event Gallery](https://github.com/projectpokemon/EventsGallery).
 
