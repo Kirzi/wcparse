@@ -801,7 +801,12 @@ const pokemonName = [
   "Guzzlord",
   "Necrozma",
   "Magearna",
-  "Marshadow"
+  "Marshadow",
+  "Poipole",
+  "Naganadel",
+  "Stakataka",
+  "Blacephalon",
+  "Zeraora"
 ];
 
 'use strict';
@@ -949,7 +954,8 @@ formes[720] = ['Confined', 'Unbound'];
 formes[735] = [null, 'Totem'];
 formes[738] = [null, 'Totem'];
 formes[741] = ['Baile', 'Pom-Pom', 'Pa’u', 'Sensu'];
-formes[745] = ['Midday', 'Midnight'];
+formes[744] = [null, 'Dusk'];
+formes[745] = ['Midday', 'Midnight', 'Dusk'];
 formes[746] = ['Solo', 'School'];
 formes[754] = [null, 'Totem'];
 formes[758] = [null, 'Totem'];
@@ -1992,7 +1998,46 @@ const itemName = [
   "Ice Memory",
   "Dragon Memory",
   "Dark Memory",
-  "Fairy Memory"
+  "Fairy Memory",
+  "Solganium Z",
+  "Lunalium Z",
+  "Ultranecrozium Z",
+  "Mimikium Z",
+  "Lycanium Z",
+  "Kommonium Z",
+  "Solganium Z",
+  "Lunalium Z",
+  "Ultranecrozium Z",
+  "Mimikium Z",
+  "Lycanium Z",
+  "Kommonium Z",
+  "Z-Power Ring",
+  "Pink Petal",
+  "Orange Petal",
+  "Blue Petal",
+  "Red Petal",
+  "Green Petal",
+  "Yellow Petal",
+  "Purple Petal",
+  "Rainbow Flower",
+  "Surge Badge",
+  "N-Solarizer",
+  "N-Lunarizer",
+  "N-Solarizer",
+  "N-Lunarizer",
+  "Ilima's Normalium Z",
+  "Left Poké Ball",
+  "Roto Hatch",
+  "Roto Bargain",
+  "Roto Prize Money",
+  "Roto Exp. Points",
+  "Roto Friendship",
+  "Roto Encounter",
+  "Roto Stealth",
+  "Roto HP Restore",
+  "Roto PP Restore",
+  "Roto Boost",
+  "Roto Catch"
 ];
 
 const ballName = [
@@ -2745,7 +2790,16 @@ const moveName = [
   "Zing Zap",
   "Nature's Madness",
   "Multi-Attack",
-  "10,000,000 Volt Thunderbolt"
+  "10,000,000 Volt Thunderbolt",
+  "Mind Blown",
+  "Plasma Fists",
+  "Photon Geyser",
+  "Light That Burns the Sky",
+  "Searing Sunraze Smash",
+  "Menacing Moonraze Maelstrom",
+  "Let's Snuggle Forever",
+  "Splintered Stormshards",
+  "Clangorous Soulblaze",
 ];
 
 const natureName = [
@@ -3252,7 +3306,7 @@ locationName7 = {
   "104": "Battle Royal Dome",
   "106": "Route 10",
   "108": "Route 11",
-  "110": "Secluded Shore",
+  "110": "Secluded Shore / Ula'ula Beach",
   "112": "Route 13",
   "114": "Tapu Village",
   "116": "Route 15",
@@ -3293,9 +3347,32 @@ locationName7 = {
   "184": "Exeggutor Island",
   "186": "Battle Tree",
   "188": "Aether Paradise",
-  "190": "Ultra Space",
+  "190": "Ultra Space / Ultra Deep Sea",
   "192": "Malie City",
   "193": "Outer Cape",
+  "194": "Melemele",
+  "195": "Akala",
+  "196": "Ula'ula",
+  "197": "Poni",
+  "198": "Big Wave Beach",
+  "200": "Sandy Cave",
+  "202": "Heahea Beach",
+  "204": "Poni Beach",
+  "206": "Ultra Megalopolis",
+  "208": "Megalo Tower",
+  "210": "Ultra Plant",
+  "212": "Ultra Crater",
+  "214": "Ultra Desert",
+  "216": "Ultra Forest",
+  "218": "Ultra Jungle",
+  "220": "Ultra Ruin",
+  "222": "Ultra Space Wilds",
+  "224": "Team Rocket's Castle",
+  "226": "Plains Grotto",
+  "228": "Pikachu Valley",
+  "230": "Route 1",
+  "231": "Trainers' School",
+  "232": "Dividing Peak Tunnel",
   "30001": "a Link Trade",
   "30002": "a Link Trade",
   "30003": "the Kanto region",
@@ -3312,6 +3389,7 @@ locationName7 = {
   "30014": "the Hoenn region",
   "30015": "the Alola region",
   "30016": "Poke Pelago",
+  "30017": "the Johto region",
   "40001": "a lovely place",
   "40002": "a faraway place",
   "40003": "a Pokemon movie",
