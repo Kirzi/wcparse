@@ -817,7 +817,7 @@ for (let i = 1; i < formes.length; i++) {
 }
 
 formes[20] = [null, 'Alola', 'Totem'];
-formes[25] = [null, 'Original Cap', 'Hoenn Cap', 'Sinnoh Cap', 'Unova Cap', 'Kalos Cap', 'Alola Cap'];
+formes[25] = [null, 'Original Cap', 'Hoenn Cap', 'Sinnoh Cap', 'Unova Cap', 'Kalos Cap', 'Alola Cap', 'Partner Cap'];
 
 formes[201] = [
   'A',
@@ -1000,6 +1000,7 @@ formes[774] = [
 
 formes[778] = [null, 'Busted', 'Totem', 'Totem-Busted'];
 formes[784] = [null, 'Totem'];
+formes[800] = [null, 'Dusk Mane', 'Dawn Wings', 'Ultra'];
 formes[801] = [null, 'Original Color'];
 
 [
