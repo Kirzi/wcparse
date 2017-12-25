@@ -16,7 +16,7 @@ function pad(input, number) {
   return input;
 }
 
-function parseWCData (buf, options) {
+function parseWC67Data (buf, options) {
 
   const data = {}; 
 
@@ -646,7 +646,7 @@ function parseWCData (buf, options) {
 
 function parseWCFullData (buf, options) {
   
-  const data = parseWCData(buf.slice(520), options);
+  const data = parseWC67Data(buf.slice(520), options);
   
   document.querySelector("header").style.height = "350px";
   document.getElementById("wondercardbox").style.top = "50px";

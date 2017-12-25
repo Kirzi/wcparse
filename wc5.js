@@ -1,4 +1,4 @@
-function parsePGFData (buf, options) {
+function parseWC5Data (buf, options) {
 
   const data = {}; 
   
@@ -314,7 +314,6 @@ function parsePGFData (buf, options) {
     data.powerType = buf.readUInt16LE(0x00);
   } 
   
-  data.wcType = "pgf";
   data.wcTitle = stripNullChars(buf.toString('utf16le', 0x60, 0xA9));
     document.getElementById("wcTitle").innerHTML = data.wcTitle;
   data.day = buf.readUInt8(0xAC);
