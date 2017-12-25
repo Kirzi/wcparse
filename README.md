@@ -19,5 +19,6 @@ If you don't have the file for the wondercard you want to view, you should be ab
 Credits:
 
 - Porybox's [pkparse](https://github.com/porybox/pkparse) for part of the code
+- [Pokesprite](https://github.com/msikma/pokesprite) for sprites
 - Project Pokémon's research on wondercard structure
 - Probably many more

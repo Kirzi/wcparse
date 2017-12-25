@@ -1,4 +1,4 @@
-function parsePCDPGTData (buf, options) {
+function parseWC4Data (buf, options) {
 
   const data = {}; 
   
@@ -24,10 +24,10 @@ function parsePCDPGTData (buf, options) {
       }
       // not going to bother adding Poketch or Pokewalker names here, look up the index yourself
     }
-  data.pokemonInfo = buf.toString('utf16le', 0x08, 0xF3); // encrypted?
+  data.pokemonInfo = buf.toString('utf16le', 0x08, 0xF3); // encrypted
   
   if (buf.length == 856) { // pcd
-    data.cardTitle = stripNullChars(buf.toString('utf16le', 0x104, 0x149)); // encrypted?
+    data.cardTitle = stripNullChars(buf.toString('utf16le', 0x104, 0x149)); // encrypted
     data.gamesAvailable = gamesAvailable();
       function gamesAvailable() {
         const games4 = ["", "", "", "", "", "", "", "HG", "SS", "", "Diamond", "Pearl", "Platinum", "", "", ""];
@@ -41,8 +41,8 @@ function parsePCDPGTData (buf, options) {
         return gamesRedeemable.slice(0,-1);
       }
     data.wcID = buf.readUInt8(0x150);
-    data.cardText = stripNullChars(buf.toString('utf16le', 0x154, 0x335)); // encrypted?
-    data.redistributionsLeft = redisLeft(); // still not really sure what this is but let's go with it
+    data.cardText = stripNullChars(buf.toString('utf16le', 0x154, 0x335)); // encrypted
+    data.redistributionsLeft = redisLeft(); 
       function redisLeft() {
         if (buf.readUInt16LE(0x348) == 0x00) {
           return "Not redistributable";
