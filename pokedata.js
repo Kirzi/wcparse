@@ -819,6 +819,8 @@ for (let i = 1; i < formes.length; i++) {
 formes[20] = [null, 'Alola', 'Totem'];
 formes[25] = [null, 'Original Cap', 'Hoenn Cap', 'Sinnoh Cap', 'Unova Cap', 'Kalos Cap', 'Alola Cap', 'Partner Cap'];
 
+formes[105] = [null, 'Alola', 'Totem'];
+
 formes[201] = [
   'A',
   'B',
@@ -954,9 +956,11 @@ formes[720] = ['Confined', 'Unbound'];
 formes[735] = [null, 'Totem'];
 formes[738] = [null, 'Totem'];
 formes[741] = ['Baile', 'Pom-Pom', 'Pa’u', 'Sensu'];
+formes[743] = [null, 'Totem'];
 formes[744] = [null, 'Dusk'];
 formes[745] = ['Midday', 'Midnight', 'Dusk'];
 formes[746] = ['Solo', 'School'];
+formes[752] = [null, 'Totem'];
 formes[754] = [null, 'Totem'];
 formes[758] = [null, 'Totem'];
 
@@ -998,6 +1002,7 @@ formes[774] = [
   'Violet'
 ];
 
+formes[777] = [null, 'Totem'];
 formes[778] = [null, 'Busted', 'Totem', 'Totem-Busted'];
 formes[784] = [null, 'Totem'];
 formes[800] = [null, 'Dusk Mane', 'Dawn Wings', 'Ultra'];
@@ -1072,8 +1077,7 @@ formes[801] = [null, 'Original Color'];
   76,
   88,
   89,
-  103,
-  105
+  103
 ].forEach(i => {
   formes[i] = [null, 'Alola'];
 });
