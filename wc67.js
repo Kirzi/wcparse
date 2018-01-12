@@ -194,7 +194,14 @@ function parseWC67Data (buf, options) {
     document.getElementById("pkmnBall").className = "spr-ball-" + buf.readUInt8(0x76);
     data.heldItem = itemName[buf.readUInt16LE(0x78)];
       document.getElementById("heldItem").innerHTML = data.heldItem;
-    document.getElementById("pkmnItem").className = "spr-item-" + buf.readUInt16LE(0x78);
+      document.getElementById("pkmnItem").className = itemCheck();
+      function itemCheck() {
+        if (buf.readUInt16LE(0x78) == 0) {
+            return "";
+          }
+          else
+            return "spr-item-" + buf.readUInt16LE(0x78);
+        }
     data.move1Name = moveName[buf.readUInt16LE(0x7A)];
       document.getElementById("move1Name").innerHTML = data.move1Name;
     data.move2Name = moveName[buf.readUInt16LE(0x7C)];  
@@ -442,9 +449,16 @@ function parseWC67Data (buf, options) {
       }
       document.getElementById("Level").innerHTML = data.Level + metLevelCheck();
     data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0xD1)]; 
-    data.additionalItem = itemName[buf.readUInt16LE(0xD2)];
+	  data.additionalItem = itemName[buf.readUInt16LE(0xD2)];
       document.getElementById("additionalItem").innerHTML = data.additionalItem;
-    document.getElementById("pkmnExtraItem").className = "spr-item-" + buf.readUInt16LE(0xD2);
+      document.getElementById("pkmnExtraItem").className = extraItemCheck();
+      function extraItemCheck() {
+        if (buf.readUInt16LE(0xD2) == 0) {
+            return "";
+          }
+          else
+            return "spr-item-" + buf.readUInt16LE(0xD2);
+        }
     data.pid = pidSet();
     function pidSet() {
       if (buf.readUInt8(0xA3) == "0x00") {
