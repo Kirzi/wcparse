@@ -62,7 +62,14 @@ function parseWC5Data (buf, options) {
       document.getElementById("pkmnBall").className = "spr-ball-" + buf.readUInt8(0x0E);
     data.heldItem = itemName[buf.readUInt16LE(0x10)];
       document.getElementById("heldItem").innerHTML = data.heldItem;
-      document.getElementById("pkmnItem").className = "spr-item-" + buf.readUInt16LE(0x10);
+      document.getElementById("pkmnItem").className = itemCheck();
+	  function itemCheck() {
+	    if (buf.readUInt16LE(0x78) == 0) {
+          return "";
+        }
+        else
+          return "spr-item-" + buf.readUInt16LE(0x78);
+      }
     data.move1Name = moveName[buf.readUInt16LE(0x12)];
       document.getElementById("move1Name").innerHTML = data.move1Name; 
     data.move2Name = moveName[buf.readUInt16LE(0x14)];  
@@ -283,13 +290,13 @@ function parseWC5Data (buf, options) {
       document.getElementById("Level").innerHTML = data.Level + metLevelCheck();
     data.isEgg = ['Not egg', 'Is egg'][buf.readUInt8(0x5C)]; 
 
-    document.getElementById("pkmnSpecies").className = "pkmn-" + shinyCheckAgain() + data.dexNo;
+    document.getElementById("pkmnSpecies").className = "spr-box" + " spr-box-" + data.dexNo + " " + shinyCheckAgain();
       function shinyCheckAgain() {
-        if (data.shiny == "Yes") {
-          return "shiny-";
+        if (data.pidId == 2) {
+          return "spr-shiny";
         }
         else 
-          return "";
+          return "spr-regular";
       } 
 
     document.getElementById("pokemonbox").style.display = "block";
