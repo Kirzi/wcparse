@@ -610,13 +610,13 @@ function parseWC67Data (buf, options) {
       else 
         return "/regular/";
     } 
-  document.getElementById("pkmnSpecies").className = "pkmn-" + shinyCheckAgain() + data.dexNo + formCheck();
+  document.getElementById("pkmnSpecies").className = "spr-box" + " spr-box-" + data.dexNo + formCheck() + " " + shinyCheckAgain();
     function shinyCheckAgain() {
       if (data.pidId == 2) {
-        return "shiny-";
+        return "spr-shiny";
       }
       else 
-        return "";
+        return "spr-regular";
     } 
     function formCheck() {
       if (!data.formId == 0) {
