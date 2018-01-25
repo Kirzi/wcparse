@@ -22,6 +22,17 @@ header {
 	z-index: 1;
 }
 
+#wcparseLink {
+  display: none;
+}
+
+  #wcparseLink a {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+  }
+
 h1 {
 	font-size: 1.3em;
   margin-top: 0;
@@ -39,7 +50,8 @@ pre {
   white-space: pre-wrap;
 }
 
-#wrapper {
+#wrapper,
+#wcparseLink {
 	max-width: 1000px;
   width: 90%;
 	margin: 0 auto;
@@ -155,3 +167,21 @@ pre {
   vertical-align: middle;
   bottom: 1px;
 }
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-align: right;
+}
+
+footer a,
+#wcparseLink a {
+  color: #000;
+  text-decoration: none;
+}
+
+  footer a:hover, 
+  #wcparseLink a:hover {
+    text-decoration: underline;
+  }
