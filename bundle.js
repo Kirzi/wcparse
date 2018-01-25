@@ -12,12 +12,15 @@ exports.parseWCBuffer = (buf, options) => {
   document.querySelector("header").style.height = "200px";
   document.getElementById("wondercardbox").style.top = "100px";
   
+  document.getElementById("wcparseLink").style.display = "block";
+  
   // hidden by default - need to reset after switching between WC types
   document.getElementById("wcfullbox").style.display = "none";
   document.getElementById("pokemonbox").style.display = "none";
   document.getElementById("itembox").style.display = "none";
   document.getElementById("anotherbox").style.display = "none";
   document.getElementById("outputbox").style.display = "none";
+  document.querySelector("footer").style.display = "none";
   var gen7exclusive = document.getElementsByClassName("extragen7");
     for (var i=0;i<gen7exclusive.length;i+=1){
       gen7exclusive[i].style.display = 'none';
