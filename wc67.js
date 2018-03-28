@@ -74,9 +74,9 @@ function parseWC67Data (buf, options) {
       return "Unknown"; // futureproofing
     }
   }
-  data.giftRedeemable = ['Infinite', 'Only once', 'Infinite', 'Only once', 'Once per day', '???', 'Once per day'][buf.readUInt8(0x52)];
+  data.giftRedeemable = ['May be infinite', 'Only once', 'May be infinite', 'Only once', 'Once per day', '???', 'Once per day'][buf.readUInt8(0x52)];
     document.getElementById("giftRedeemable").innerHTML = data.giftRedeemable;
-    if (data.giftRedeemable === 'Infinite') {
+    if (data.giftRedeemable === 'May be infinite') {
       document.getElementById("giftRedeemable").style.color = "#009688";
       document.getElementById("giftRedeemable").style.fontWeight = "bold";
     }
