@@ -707,3 +707,31 @@ function parseWCFullData (buf, options) {
   return data;
   
 }
+
+function parseMultiWCFullData (buf, options) {
+  
+  const data = parseWCFullData(buf, options);
+  
+  document.getElementById("wcslot").style.display = "block";
+  
+  var wcCount = buf.length/784;
+  
+    var options = "";
+    var i = 0;
+    for (i = 0; i < wcCount; i++) {
+      options += '<option value="' + i + '">' + (i+1) + '</option>';
+    }
+    document.getElementById("wcslottoggle").innerHTML = options;
+  
+  var wcNo = 0;
+  var wcfullSwitch = 0;
+
+  document.getElementById('wcslottoggle').onchange = function thing2() {
+    wcNo = document.getElementById('wcslottoggle').value;
+    wcfullSwitch = wcNo*784;
+    const data = parseWCFullData(buf.slice(wcfullSwitch), options);
+  };
+  
+  return data;
+  
+}
