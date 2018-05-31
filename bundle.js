@@ -20,6 +20,7 @@ exports.parseWCBuffer = (buf, options) => {
   document.getElementById("itembox").style.display = "none";
   document.getElementById("anotherbox").style.display = "none";
   document.getElementById("outputbox").style.display = "none";
+  document.getElementById("wcslot").style.display = "none";
   document.querySelector("footer").style.display = "none";
   var gen7exclusive = document.getElementsByClassName("extragen7");
     for (var i=0;i<gen7exclusive.length;i+=1){
@@ -36,10 +37,12 @@ exports.parseWCBuffer = (buf, options) => {
   
 	if (buf.length == 1446) { // BOSS
 		return parseWCFullData(buf.slice(662), options);
+  } else if (((buf.slice(662).length % 784 == 0)) & (buf.length > 1446)) { // multi-BOSS
+		return parseMultiWCFullData(buf.slice(662), options);
 	} else if (buf.length == 784) { // wcfull
 		return parseWCFullData(buf, options);
   } else if ((buf.length % 784 == 0) & (buf.length > 784)) { // multi-wcfull
-		return parseWCFullData(buf, options);
+		return parseMultiWCFullData(buf, options);
 	} else if (buf.length == 264) { // wc67
 		return parseWC67Data(buf, options);
 	} else if (buf.length == 204) { // wc5

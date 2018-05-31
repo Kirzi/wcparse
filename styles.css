@@ -168,6 +168,10 @@ pre {
   bottom: 1px;
 }
 
+#wcslottoggle {
+  margin-top: 5px;
+}
+
 footer {
   position: absolute;
   bottom: 20px;
