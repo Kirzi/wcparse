@@ -34,15 +34,17 @@ exports.parseWCBuffer = (buf, options) => {
       wcexclusive[i].style.display = 'none';
     }
   
-	if (buf.length==1446) { // BOSS
+	if (buf.length == 1446) { // BOSS
 		return parseWCFullData(buf.slice(662), options);
-	} else if (buf.length==784) { // wcfull
+	} else if (buf.length == 784) { // wcfull
 		return parseWCFullData(buf, options);
-	} else if (buf.length==264) { // wc67
+  } else if ((buf.length % 784 == 0) & (buf.length > 784)) { // multi-wcfull
+		return parseWCFullData(buf, options);
+	} else if (buf.length == 264) { // wc67
 		return parseWC67Data(buf, options);
-	} else if (buf.length==204) { // wc5
+	} else if (buf.length == 204) { // wc5
 		return parseWC5Data(buf, options);
-	} else if ((buf.length==856) || (buf.length==260)) { // wc4 - pcd:856 pgt:260
+	} else if ((buf.length == 856) || (buf.length == 260)) { // wc4 - pcd:856 pgt:260
 		return parseWC4Data(buf, options);
 	} else {
 		throw new TypeError('Try actually uploading a wondercard this time.');
