@@ -65,8 +65,7 @@ function parseWC4Data (buf, options) {
   }
   
   // temporary while the important stuff is encrypted
-  document.querySelector("header").style.backgroundColor = "#222";
-  document.getElementById("wondercardbox").style.display = "none";
+  document.getElementById("wcContainer").style.display = "none";
   document.getElementById("filename").style.display = "none";
   document.getElementById("filecheckbox").style.display = "none";
   document.getElementById('filetoggle').checked = false;

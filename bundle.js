@@ -8,9 +8,8 @@ exports.parseWCBuffer = (buf, options) => {
  
   const data = {}; 
   
-  // bumps to top
-  document.querySelector("header").style.height = "200px";
-  document.getElementById("wondercardbox").style.top = "100px";
+  document.styleSheets[1].disabled = true;
+  document.getElementById("styles-full").removeAttribute('disabled');
   
   document.getElementById("wcparseLink").style.display = "block";
   

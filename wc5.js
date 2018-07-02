@@ -2,7 +2,7 @@ function parseWC5Data (buf, options) {
 
   const data = {}; 
   
-  document.getElementById("wondercardbox").style.display = "block";
+  document.getElementById("wcContainer").style.display = "block";
   document.getElementById("anotherbox").style.display = "block";
   document.getElementById("outputbox").style.display = "block";
   
@@ -71,27 +71,27 @@ function parseWC5Data (buf, options) {
           return "spr-item-" + buf.readUInt16LE(0x78);
       }
     data.move1Name = moveName[buf.readUInt16LE(0x12)];
-      document.getElementById("move1Name").innerHTML = data.move1Name; 
+      document.getElementById("move1Name").innerHTML = "- " + data.move1Name; 
     data.move2Name = moveName[buf.readUInt16LE(0x14)];  
-      document.getElementById("move2Name").innerHTML = data.move2Name;
+      document.getElementById("move2Name").innerHTML = "- " + data.move2Name;
     data.move3Name = moveName[buf.readUInt16LE(0x16)];
-      document.getElementById("move3Name").innerHTML = data.move3Name;
+      document.getElementById("move3Name").innerHTML = "- " + data.move3Name;
     data.move4Name = moveName[buf.readUInt16LE(0x18)];  
-      document.getElementById("move4Name").innerHTML = data.move4Name;
+      document.getElementById("move4Name").innerHTML = "- " + data.move4Name;
     data.dexNo = buf.readUInt16LE(0x1A);
     data.pokemonName = pokemonName[buf.readUInt16LE(0x1A)];
       document.getElementById("pokemonName").innerHTML = data.pokemonName;
-      document.getElementById("formName").innerHTML = "None";
+      document.getElementById("formName").innerHTML = "";
     data.language = ['Yours', 'JPN', 'ENG', 'FRE', 'ITA', 'GER', '???', 'SPA', 'KOR', 'CHS', 'CHT'][buf.readUInt8(0x1D)]; 
       document.getElementById("language").innerHTML = data.language;
     data.nickname = nicknameName();
       document.getElementById("nickname").innerHTML = data.nickname;
       function nicknameName() {
         if (buf.readUInt16LE(0x1E) !== 0xFFFF) {
-          return stripNullChars(buf.toString('utf16le', 0x1E, 0x31));
+          return "(" + stripNullChars(buf.toString('utf16le', 0x1E, 0x31)) + ")";
         }
         else 
-          return "None";
+          return "";
       }
     data.nature = natureType();
       document.getElementById("nature").innerHTML = data.nature;
@@ -331,7 +331,7 @@ function parseWC5Data (buf, options) {
     document.getElementById("cardText").innerHTML = data.cardText;
   data.cardType = [null, 'Pokemon', 'Item', 'Power'][buf.readUInt8(0xB3)];  
   data.cardColor = [null, 'Blue', 'Pink', 'Yellow'][buf.readUInt8(0xB3)];  
-    document.querySelector("header").style.background = wcBackground();
+    document.getElementById("wcBox").style.borderColor = wcBackground();
       function wcBackground() {
         if (data.cardColor == "Blue") {
           return "#00A9A9"; 

@@ -1,4 +1,4 @@
-﻿* {
+* {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -15,177 +15,19 @@ body {
 
 header {
 	width: 100%;
-	height: 400px;
 	background-color: #e53935;
-	box-shadow: 0 1px 3px 1px rgba(128,128,128,.5);
 	position: relative;
 	z-index: 1;
 }
 
-#wcparseLink {
-  display: none;
-}
-
-  #wcparseLink a {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 10px;
-    font-size: 0.8em;
-  }
-
-h1 {
-	font-size: 1.3em;
-  margin-top: 0;
-}
-
-h2 {
-	font-size: 1.1em;
-}
-
-p {
-  margin: 10px 0;
-}
-
-pre {
-  white-space: pre-wrap;
-}
-
-#wrapper,
-#wcparseLink {
-	max-width: 1000px;
-  width: 90%;
-	margin: 0 auto;
-}
-
-#wondercardbox,
-#wcfullbox {
-	z-index: 2;
-	position: absolute;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	width: 500px;
-	height: 200px;
-}
-
-#wondercardbox {
-	top: 300px;
-}
-
-#cardText {
-	margin-top: 20px;
-}
-
-#pkmnImg {
-	float: right;
-	background-image: url("img/large/ballbg.png");
-}
-
-#relearn1, #relearn2, #relearn3, #relearn4 {
-	font-size: .7em;
-	color: #444;
-}
-
-.box,
-#wondercardbox,
-#wcfullbox,
-#pokemonbox,
-#itembox,
-#anotherbox,
-#outputbox {
-	padding: 30px;
-	background-color: #fff;
-	box-shadow: 0 1px 3px 1px rgba(128,128,128,.5);
-	margin-bottom: 15px;
-	overflow: hidden;
-}
-
-#wcfullbox {
-	top: 250px;
-	padding: 0;
-  text-align: center;
-}
-
-	#wcfullbox p {
-		line-height: 10px;
-	}
-
-#wcfulltext {
-  display: inline-block;
-  text-align: left;
-}
-
-.left,
-.right {
-	width: 50%;
-	float: left;
-	padding: 85px 10% 0 10%;
-}
-
-#itembox {
-	padding-top: 125px;
-	text-align: center;
-}
-	#itembox p {
-		font-weight: 700;
-	}
-
-#anotherbox {
-	text-align: center;
-}
-
-.title {
-	text-align: center;
-}
-
-.label {
-	font-weight: 700;
-}
-
-#wcfullbox,
-#pokemonbox,
-#itembox,
-#anotherbox,
-#outputbox,
-.extragen7,
-.extrawcfull,
-.relearn {
-	display: none;
-}
-
-#filename {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 5;
-  color: #fff;
-  font-size: 1.2em;
-}
-
-#filetoggle {
-  position: relative;
-  vertical-align: middle;
-  bottom: 1px;
-}
-
-#wcslottoggle {
-  margin-top: 5px;
-}
-
-footer {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  text-align: right;
-}
-
-footer a,
-#wcparseLink a {
-  color: #000;
+a {
   text-decoration: none;
 }
-
-  footer a:hover, 
-  #wcparseLink a:hover {
+  a:hover {
     text-decoration: underline;
   }
+  
+#wrapper {
+  margin: 0 auto;
+  max-width: 1100px;
+}

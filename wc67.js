@@ -20,7 +20,7 @@ function parseWC67Data (buf, options) {
 
   const data = {}; 
 
-  document.getElementById("wondercardbox").style.display = "block";
+  document.getElementById("wcContainer").style.display = "block";
   document.getElementById("anotherbox").style.display = "block";
   document.getElementById("outputbox").style.display = "block";
 
@@ -99,7 +99,7 @@ function parseWC67Data (buf, options) {
       return ['Blue', 'Green'][buf.readUInt8(0x53)]
   }
 
-  document.querySelector("header").style.background = wcBackground();
+  document.getElementById("wcBox").style.borderColor = wcBackground();
     function wcBackground() {
       if (data.wcType == "wc7") {
         if (data.cardColorId == 0) {
@@ -112,18 +112,11 @@ function parseWC67Data (buf, options) {
           return "#f6fa29"; // yellow
         }
         else
-          return "#222"; // futureproofing
+          return "transparent"; 
       }
       else if (data.wcType == "wc6") {
           return "#0759A5"; // blue
       } // I'm making all wc6s display in the frontend as blue since the green only shows up during redemption
-    }
-    
-    if (data.cardColorId == 2) {
-      document.getElementById("filename").style.color = "#000";
-    }
-    else {
-      document.getElementById("filename").style.color = "#fff";
     }
   
   if (data.cardType == 'Pokemon') {
@@ -203,13 +196,13 @@ function parseWC67Data (buf, options) {
             return "spr-item-" + buf.readUInt16LE(0x78);
         }
     data.move1Name = moveName[buf.readUInt16LE(0x7A)];
-      document.getElementById("move1Name").innerHTML = data.move1Name;
+      document.getElementById("move1Name").innerHTML = "- " + data.move1Name;
     data.move2Name = moveName[buf.readUInt16LE(0x7C)];  
-      document.getElementById("move2Name").innerHTML = data.move2Name;
+      document.getElementById("move2Name").innerHTML = "- " + data.move2Name;
     data.move3Name = moveName[buf.readUInt16LE(0x7E)];
-      document.getElementById("move3Name").innerHTML = data.move3Name;
+      document.getElementById("move3Name").innerHTML = "- " + data.move3Name;
     data.move4Name = moveName[buf.readUInt16LE(0x80)];  
-      document.getElementById("move4Name").innerHTML = data.move4Name;
+      document.getElementById("move4Name").innerHTML = "- " + data.move4Name;
     data.dexNo = buf.readUInt16LE(0x82);
     data.pokemonName = pokemonName[buf.readUInt16LE(0x82)];
       document.getElementById("pokemonName").innerHTML = data.pokemonName;
@@ -217,10 +210,10 @@ function parseWC67Data (buf, options) {
     data.formName = hasForm();
       function hasForm() {
         if (!buf.readUInt8(0x84) == 0) {
-          return formes[buf.readUInt16LE(0x82)][buf.readUInt8(0x84)];
+          return " - " + formes[buf.readUInt16LE(0x82)][buf.readUInt8(0x84)];
         }
         else 
-          return "None";
+          return "";
       }
       document.getElementById("formName").innerHTML = data.formName;
     data.language = ['Yours', 'JPN', 'ENG', 'FRE', 'ITA', 'GER', '???', 'SPA', 'KOR', 'CHS', 'CHT'][buf.readUInt8(0x85)]; 
@@ -228,10 +221,10 @@ function parseWC67Data (buf, options) {
     data.nickname = nicknameName();
     function nicknameName() {
       if (!buf.readUInt8(0x86) == "0x00") {
-        return stripNullChars(buf.toString('utf16le', 0x86, 0x9F));
+        return "(" + stripNullChars(buf.toString('utf16le', 0x86, 0x9F)) + ")";
       }
       else 
-        return "None";
+        return "";
     }
     document.getElementById("nickname").innerHTML = data.nickname;
     data.nature = natureType();
@@ -662,8 +655,6 @@ function parseWCFullData (buf, options) {
   
   const data = parseWC67Data(buf.slice(520), options);
   
-  document.querySelector("header").style.height = "350px";
-  document.getElementById("wondercardbox").style.top = "50px";
   document.getElementById("wcfullbox").style.display = "block";
   var wcfullexclusive = document.getElementsByClassName("extrawcfull");
     for (var i=0;i<wcfullexclusive.length;i+=1){
@@ -729,7 +720,7 @@ function parseMultiWCFullData (buf, options) {
   document.getElementById('wcslottoggle').onchange = function thing2() {
     wcNo = document.getElementById('wcslottoggle').value;
     wcfullSwitch = wcNo*784;
-    const data = parseWCFullData(buf.slice(wcfullSwitch), options);
+    const data = parseWCFullData(buf.slice(wcfullSwitch), options);zzzzz
   };
   
   return data;

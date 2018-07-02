@@ -1,96 +1,219 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
- <title>wcparse</title>
- <meta name="description" content="Browser-based wondercard file parser/viewer.">
- <link rel="icon" type="image/png" href="img/cherishball.png">
- <link rel="stylesheet" href="styles.css" />
- <link rel="stylesheet" href="sprites.css" />
- <script src="bundle.js"></script>
- <script src="pokedata.js"></script>
- <script src="wc67.js"></script>
- <script src="wc5.js"></script>
- <script src="wc4.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+  <title>wcparse</title>
+  <meta name="description" content="Browser-based wondercard file parser/viewer.">
+  <link rel="icon" type="image/png" href="img/cherishball.png">
+  <link rel="stylesheet" id="styles" href="styles.css" />
+  <link rel="stylesheet" id="styles-start" href="styles-start.css" />
+  <link rel="stylesheet" id="styles-full" href="styles-full.css" disabled />
+  <link rel="stylesheet" href="sprites.css" />
+  <script src="bundle.js"></script>
+  <script src="pokedata.js"></script>
+  <script src="wc67.js"></script>
+  <script src="wc5.js"></script>
+  <script src="wc4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
 </head>
 <body>
 
 <header>
   <div id="wcparseLink"><a href="https://kirzi.github.io/wcparse/">kirzi.github.io/wcparse</a></div>
+  <div id="headerbar">
+    <span id="name"><h1>wcparse</h1></span>
+    <span id="wcFilename">
+      <p id="filename"></p>
+    </span>
+    <span id="menu"><h1>☰</h1></span>
+  </div>
 </header>
 
-<div id="wrapper">
-
-<div id="wondercardbox">
- <h1 class="title"><span id="wcTitle">Choose a wondercard file</span></h1>
- <img id="pkmnImg" src="img/large/pokemon/regular/0.png" alt="pokemon" />
- <p id="cardText"><input type="file" id="input" accept=".wc6,.wc7,.wc6full,.wc7full,.wc5,.pgf,.wc4,.pcd,.pgt" onchange="parseFile(this.files)" /></p>
-</div>
-
-<div id="wcfullbox">
- <div id="wcfulltext"></div>
-</div>
-
-<div id="pokemonbox">
- <div class="left">
-  <p><span class="label">Pokémon: </span><span id="pokemonName"></span><span id="pkmnSpecies" class="spr-box-0"></span></p>
-  <p><span class="label">Form: </span><span id="formName"></span></p>
-  <p><span class="label">Nickname: </span><span id="nickname"></span></p>
-  <p><span class="label">Nature: </span><span id="nature"></span><span id="natureLock"></span></p>
-  <p><span class="label">Ability type: </span><span id="abilityType"></span></p>
-  <p><span class="label">IVs: </span><span id="ivInfo"></span></p>  
-  <p class="extragen7"><span class="label">EVs: </span><span id="evInfo"></span></p>
-  <p><span class="label">Moves: </span></p>
-   <p> - <span id="move1Name"></span> <span class="relearn" id="relearn1"></span></p>
-   <p> - <span id="move2Name"></span> <span class="relearn" id="relearn2"></span></p>
-   <p> - <span id="move3Name"></span> <span class="relearn" id="relearn3"></span></p>
-   <p> - <span id="move4Name"></span> <span class="relearn" id="relearn4"></span></p>
- </div>
- <div class="right">
-  <p><span class="label">OT: </span><span id="ot"></span></p>
-  <p><span class="label">ID No: </span><span id="idNo"></span></p>
-  <p><span class="label">Gender: </span><span id="gender"></span></p>
-  <p><span class="label">Level: </span><span id="Level"></span></p>
-  <p><span class="label">Location: </span><span id="metLocation"></span><span id="eggLocation"></span></p>
-  <p><span class="label">Ball: </span><span id="ball"></span><span id="pkmnBall" class="spr-ball-0"></span></p>
-  <p><span class="label">Item: </span><span id="heldItem"></span><span id="pkmnItem" class=""></span></p>
-  <p class="extragen7"><span class="label">Additional item: </span><span id="additionalItem"></span><span id="pkmnExtraItem" class=""></span></p>
-  <p><span class="label">Ribbon: </span><span id="Ribbon"></span><span id="pkmnRibbon" class="ribbon"></span></p>
-  <p><span class="label">Language: </span><span id="language"></span></p>
-  <p><span class="label">Shiny?: </span><span id="canBeShiny"></span></p>
-  <p><span class="label">Obtainable: </span><span id="giftRedeemable"></span></p>
-  <p class="extrawcfull"><span class="label">Available in: </span><span id="games"></span></p>
- </div>
-</div>
-
-<div id="itembox">
- <p><span id="item1"></span></p>
- <p class="extragen7"><span id="item2"></span></p>
- <p class="extragen7"><span id="item3"></span></p>
- <p class="extragen7"><span id="item4"></span></p>
- <p class="extragen7"><span id="item5"></span></p>
- <p class="extragen7"><span id="item6"></span></p>
-</div>
-
 <div id="anotherbox">
- <div id="filename"></div>
- <div id="filecheckbox">
-  <input type="checkbox" id="filetoggle">Display filename at the top?
- </div>
- <div id="wcslot">
-  WC slot:
-  <select id="wcslottoggle"></select> 
- </div>
- <p>Choose another wondercard file:
-  <input type="file" id="input" accept=".wc6,.wc7,.wc6full,.wc7full,.wc5,.pgf,.wc4,.pcd,.pgt" onchange="parseFile(this.files)" />
- </p>
+  <div id="optionsbox">
+    <p>Choose another wondercard file:
+      <input type="file" id="input" accept=".wc6,.wc7,.wc6full,.wc7full,.wc5,.pgf,.wc4,.pcd,.pgt" onchange="parseFile(this.files)" />
+    </p>
+    <div id="filecheckbox">
+      <input type="checkbox" id="filetoggle">Display filename?
+    </div>
+    <div id="wcslot">
+      WC slot:
+      <select id="wcslottoggle"></select> 
+    </div>
+  </div>
 </div>
 
-<div id="outputbox">
- <h2>Full Output</h2>
- <pre><code id="output"></code></pre>
-</div>
-
+<div id="wrapper">
+  
+  <div id="pokemonbox">
+    <div class="infoLeft">
+      <div>
+        <p class="label">Pokémon</p>
+        <hr class="divider" />
+        <p>
+          <span id="pkmnSpecies" class=""></span>
+          <span id="pokemonName"></span> 
+          <span id="formName"></span> 
+          <span id="nickname"></span>
+        </p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">OT / ID No.</p>
+        <hr class="divider" />
+        <p><span id="ot"></span> / <span id="idNo"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Gender</p>
+        <hr class="divider" />
+        <p><span id="gender"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Level</p>
+        <hr class="divider" />
+        <p><span id="Level"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Nature</p>
+        <hr class="divider" />
+        <p><span id="nature"></span><span id="natureLock"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Ability type</p>
+        <hr class="divider" />
+        <p><span id="abilityType"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">IVs</p>
+        <hr class="divider" />
+        <p><span id="ivInfo"></span></p>
+      </div>
+      <p class="break"></p>
+      <div class="extragen7">
+        <p class="label">EVs</p>
+        <hr class="divider" />
+        <p><span id="evInfo"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Moves</p>
+        <hr class="divider" />
+        <p><span id="move1Name"></span> <span class="relearn" id="relearn1"></span></p>
+        <p><span id="move2Name"></span> <span class="relearn" id="relearn2"></span></p>
+        <p><span id="move3Name"></span> <span class="relearn" id="relearn3"></span></p>
+        <p><span id="move4Name"></span> <span class="relearn" id="relearn4"></span></p>
+      </div>
+    </div>
+    <div class="infoRight">
+      <div>
+        <p class="label">Ball</p>
+        <hr class="divider" />
+        <p>
+          <span id="pkmnBall" class="spr-ball-0"></span>
+          <span id="ball"></span>
+        </p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Item</p>
+        <hr class="divider" />
+        <p>
+          <span id="pkmnItem" class=""></span>
+          <span id="heldItem"></span>
+        </p>
+      </div>
+      <p class="break"></p>
+      <div class="extragen7">
+        <p class="label">Additional item</p>
+        <hr class="divider" />
+        <p>
+          <span id="pkmnExtraItem"></span>
+          <span id="additionalItem"></span>
+        </p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Ribbon</p>
+        <hr class="divider" />
+        <p class="ribbonspace">
+          <span id="pkmnRibbon" class="ribbon"></span>
+          <span id="Ribbon"></span>
+        </p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Location</p>
+        <hr class="divider" />
+        <p><span id="metLocation"></span><span id="eggLocation"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Language</p>
+        <hr class="divider" />
+        <p><span id="language"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Shiny?</p>
+        <hr class="divider" />
+        <p><span id="canBeShiny"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Obtainable</p>
+        <hr class="divider" />
+        <p><span id="giftRedeemable"></span></p>
+      </div>
+      <p class="break"></p>
+      <div>
+        <p class="label">Available in</p>
+        <hr class="divider" />
+        <p><span id="games"></span></p>
+      </div>
+    </div>
+  </div>
+  
+  <div id="itembox">
+    <div class="infoLeft">
+      <div>
+        <p class="label">Items</p>
+        <hr class="divider" />
+        <p><span id="item1"></span></p>
+        <p class="extragen7"><span id="item2"></span></p>
+        <p class="extragen7"><span id="item3"></span></p>
+        <p class="extragen7"><span id="item4"></span></p>
+        <p class="extragen7"><span id="item5"></span></p>
+        <p class="extragen7"><span id="item6"></span></p>
+      </div>
+    </div>
+  </div>
+  
+  <div id="wcContainer">
+    <div id="wcBox">
+      <div id="wondercardbox">
+        <h1 class="title"><span id="wcTitle"></span></h1>
+        <img id="pkmnImg" src="img/large/pokemon/regular/0.png" alt="pokemon" />
+        <p id="cardText">
+          <label for="input" class="fileUpload">Click to choose a wondercard file</label>
+          <input type="file" id="input" accept=".wc6,.wc7,.wc6full,.wc7full,.wc5,.pgf,.wc4,.pcd,.pgt" onchange="parseFile(this.files)" />
+        </p>
+      </div>
+      <div id="wcfullbox">
+        <div id="wcfulltext"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="outputbox">
+    <h2>Full Output</h2>
+    <pre><code id="output"></code></pre>
+  </div>
+  
 </div>
 
 <footer>
@@ -99,6 +222,6 @@
     <a href="https://github.com/Kirzi/wcparse">What is this? More info on Github</a>
   </div>
 </footer>
-
+  
 </body>
 </html>
