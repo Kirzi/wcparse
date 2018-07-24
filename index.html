@@ -44,6 +44,22 @@
 </div>
 
 <div id="wrapper">
+
+  <div id="wcContainer">
+    <div id="wcBox">
+      <div id="wondercardbox">
+        <h1 class="title"><span id="wcTitle"></span></h1>
+        <img id="pkmnImg" src="img/large/pokemon/regular/0.png" alt="pokemon" />
+        <p id="cardText">
+          <label for="input" class="fileUpload">Click to choose a wondercard file</label>
+          <input type="file" id="input" accept=".wc6,.wc7,.wc6full,.wc7full,.wc5,.pgf,.wc4,.pcd,.pgt" onchange="parseFile(this.files)" />
+        </p>
+      </div>
+      <div id="wcfullbox">
+        <div id="wcfulltext"></div>
+      </div>
+    </div>
+  </div>
   
   <div id="pokemonbox">
     <div class="infoLeft">
@@ -189,22 +205,6 @@
         <p class="extragen7"><span id="item4"></span></p>
         <p class="extragen7"><span id="item5"></span></p>
         <p class="extragen7"><span id="item6"></span></p>
-      </div>
-    </div>
-  </div>
-  
-  <div id="wcContainer">
-    <div id="wcBox">
-      <div id="wondercardbox">
-        <h1 class="title"><span id="wcTitle"></span></h1>
-        <img id="pkmnImg" src="img/large/pokemon/regular/0.png" alt="pokemon" />
-        <p id="cardText">
-          <label for="input" class="fileUpload">Click to choose a wondercard file</label>
-          <input type="file" id="input" accept=".wc6,.wc7,.wc6full,.wc7full,.wc5,.pgf,.wc4,.pcd,.pgt" onchange="parseFile(this.files)" />
-        </p>
-      </div>
-      <div id="wcfullbox">
-        <div id="wcfulltext"></div>
       </div>
     </div>
   </div>
